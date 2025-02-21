@@ -1,17 +1,14 @@
 [project]
 name = "shadcn_django"
-version = "0.1.0"
+version = "0.2.0"
 description = "shadcn/ui for Django"
 readme = "README.md"
 authors = [{ name = "Sarthak Jariwala", email = "sarthak@sarthakjariwala.com" }]
 requires-python = ">=3.12"
-dependencies = [
-    "copier>=9.5.0",
-    "typer>=0.15.1",
-]
+dependencies = ["copier>=9.5.0", "typer>=0.15.1"]
 
 [project.scripts]
-shadcn_django = "shadcn_django.main:app"
+shadcn_django = "src.shadcn_django.main:app"
 
 
 [build-system]
@@ -19,8 +16,4 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build]
-packages = ["src/shadcn_django"]
-include = [
-    "src/shadcn_django/**/*.py",
-    "src/shadcn_django/components.toml",
-]
+include = ["src/shadcn_django/**/*.py", "src/shadcn_django/components.toml"]
