@@ -15,7 +15,9 @@ app = typer.Typer(no_args_is_help=True)
 def get_component_dependencies(component: str) -> list[str]:
     """Read components.toml file and fetch dependencies for the given component"""
 
-    with importlib.resources.open_text("shadcn_django", "components.toml") as f:
+    with importlib.resources.open_text(
+        "src.shadcn_django", "components.toml"
+    ) as f:
         components = tomllib.loads(f.read())
 
     return components.get("dependencies", {}).get(component, [])
