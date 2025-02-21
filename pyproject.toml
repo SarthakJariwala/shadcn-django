@@ -14,7 +14,3 @@ shadcn_django = "shadcn_django.main:app"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
-
-[tool.hatch.build]
-packages = ["src/shadcn_django"]
-include = ["src/shadcn_django/**/*.py", "src/shadcn_django/components.toml"]

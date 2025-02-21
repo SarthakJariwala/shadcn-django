@@ -1,11 +1,10 @@
-import importlib.resources
 from typing import Annotated
 
 import copier
-import tomllib
 import typer
 from rich.status import Status
 
+from .components import dependencies
 from .console import console
 from .constants import COMPONENTS_REPO_URL, DEFAULT_COMPONENTS_DIRECTORY
 
@@ -13,14 +12,8 @@ app = typer.Typer(no_args_is_help=True)
 
 
 def get_component_dependencies(component: str) -> list[str]:
-    """Read components.toml file and fetch dependencies for the given component"""
-
-    with importlib.resources.open_text(
-        "src.shadcn_django", "components.toml"
-    ) as f:
-        components = tomllib.loads(f.read())
-
-    return components.get("dependencies", {}).get(component, [])
+    """Fetch dependencies for the given component"""
+    return dependencies.get(component, [])
 
 
 @app.command(name="add")
