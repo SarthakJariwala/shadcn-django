@@ -3,6 +3,7 @@ dependencies = {
     "badge": [],
     "button": [],
     "card": [],
+    "checkbox": [],
     "form": ["label"],
     "input": [],
     "label": [],
