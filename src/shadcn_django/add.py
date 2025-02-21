@@ -38,6 +38,7 @@ def add(
         for dependency in component_dependencies:
             components_to_install.add(dependency)
 
+    # exclude format: ["*", "!component", "!component.html"]
     component_excludes = [
         item
         for component in components_to_install
