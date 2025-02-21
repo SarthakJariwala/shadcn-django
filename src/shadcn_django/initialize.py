@@ -14,7 +14,7 @@ app = typer.Typer(no_args_is_help=True, add_completion=False)
 @app.command(name="init")
 def init():
     """
-    Initialize a new project
+    Initialize setup for shadcn_django components
     """
     DEFAULT_COMPONENTS_DIRECTORY.mkdir(parents=True, exist_ok=True)
     with Status("Adding tailwind config for shadcn components"):
