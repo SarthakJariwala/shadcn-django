@@ -54,6 +54,7 @@ def add(
             exclude=excludes,
         )
 
-    console.print(
-        f"[bold green]:heavy_check_mark: Added {component} component successfully![/]",
-    )
+    for comp in components_to_install:
+        console.print(
+            f"[bold green]:heavy_check_mark: Added {comp} component successfully![/]",
+        )
