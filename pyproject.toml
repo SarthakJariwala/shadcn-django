@@ -8,7 +8,7 @@ requires-python = ">=3.12"
 dependencies = ["copier>=9.5.0", "typer>=0.15.1"]
 
 [project.scripts]
-shadcn_django = "src.shadcn_django.main:app"
+shadcn_django = "shadcn_django.main:app"
 
 
 [build-system]
