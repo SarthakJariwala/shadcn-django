@@ -24,7 +24,7 @@ def get_component_dependencies(component: str) -> list[str]:
 @app.command(name="add")
 def add(
     component: Annotated[
-        str, typer.Argument(help="The name of the component to add")
+        str, typer.Argument(help="Name of the component to add")
     ],
 ):
     """
