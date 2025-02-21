@@ -1,0 +1,18 @@
+[project]
+name = "shadcn_django"
+version = "0.1.0"
+description = "shadcn/ui for Django"
+readme = "README.md"
+authors = [{ name = "Sarthak Jariwala", email = "sarthak@sarthakjariwala.com" }]
+requires-python = ">=3.12"
+dependencies = [
+    "typer>=0.15.1",
+]
+
+[project.scripts]
+shadcn_django = "shadcn_django.main:app"
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
