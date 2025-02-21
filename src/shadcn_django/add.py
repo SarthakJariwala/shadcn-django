@@ -32,15 +32,15 @@ def add(
     """
 
     component_dependencies = get_component_dependencies(component)
-    components = {component}
+    components_to_install = {component}
 
     if component_dependencies:
         for dependency in component_dependencies:
-            components.add(dependency)
+            components_to_install.add(dependency)
 
     component_excludes = [
         item
-        for component in components
+        for component in components_to_install
         for item in [f"!{component}", f"!{component}.html"]
     ]
     excludes = ["*"] + component_excludes
