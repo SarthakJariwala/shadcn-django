@@ -9,5 +9,6 @@ dependencies = {
     "label": [],
     "progress": [],
     "table": [],
+    "toast": ["button"],
     "textarea": [],
 }
