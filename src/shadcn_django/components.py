@@ -4,6 +4,7 @@ dependencies = {
     "button": [],
     "card": [],
     "checkbox": [],
+    "dropdown_menu": [],
     "form": ["label"],
     "input": [],
     "label": [],
