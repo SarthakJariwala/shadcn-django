@@ -1,4 +1,5 @@
 version = 1
+revision = 1
 requires-python = ">=3.12"
 
 [[package]]
@@ -339,7 +340,7 @@ wheels = [
 
 [[package]]
 name = "shadcn-django"
-version = "0.2.0"
+version = "0.7.0"
 source = { editable = "." }
 dependencies = [
     { name = "copier" },
