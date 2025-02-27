@@ -5,6 +5,18 @@ description = "shadcn/ui for Django"
 readme = "README.md"
 authors = [{ name = "Sarthak Jariwala", email = "sarthak@sarthakjariwala.com" }]
 requires-python = ">=3.12"
+keywords = ["django", "shadcn", "ui", "shadcn-django", "components", "shadcnui"]
+classifiers = [
+    "Framework :: Django",
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: User Interfaces",
+]
 dependencies = ["copier>=9.5.0", "typer>=0.15.1"]
 
 [project.scripts]
