@@ -17,6 +17,24 @@ This is a Django specific port of shadcn/ui. The components are built with Tailw
 
 ## An Example of a component (Toast with an action button)
 
+```html
+<div class="p-5" x-data>
+  <c-toast.trigger variant="outline" toast_target="toast-success">
+    Show Success Toast
+  </c-toast.trigger>
+</div>
+
+<c-toast id="toast-success">
+  <c-toast.content
+    type="default"
+    title="Success"
+    description="This is a success message"
+  >
+    <c-button>Share</c-button>
+  </c-toast.content>
+</c-toast>
+```
+
 ![Toast](./Toast.png)
 
 ## Installation
