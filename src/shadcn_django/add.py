@@ -21,6 +21,9 @@ def add(
     component: Annotated[
         str, typer.Argument(help="Name of the component to add")
     ],
+    overwrite: Annotated[
+        bool, typer.Option(help="Overwrite existing component files")
+    ] = True,
 ):
     """
     Add a new shadcn_django component to your project
@@ -47,6 +50,7 @@ def add(
             dst_path=DEFAULT_COMPONENTS_DIRECTORY,
             vcs_ref="main",
             exclude=excludes,
+            overwrite=overwrite,
         )
 
     for comp in components_to_install:
