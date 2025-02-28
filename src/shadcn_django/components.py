@@ -2,6 +2,7 @@ dependencies = {
     "a": [],
     "accordion": [],
     "alert": [],
+    "alert_dialog": ["button"],
     "badge": [],
     "button": [],
     "card": [],
