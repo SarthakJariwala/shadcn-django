@@ -1,5 +1,6 @@
 dependencies = {
     "a": [],
+    "accordion": [],
     "badge": [],
     "button": [],
     "card": [],
