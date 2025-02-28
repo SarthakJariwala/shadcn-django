@@ -1,5 +1,5 @@
 <li
-    @click="open = false"
+    @click="$dispatch('close-dropdown'); open = false"
     class="
     {% if class %}
         {{ class }}
