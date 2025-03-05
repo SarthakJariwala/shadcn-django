@@ -20,6 +20,6 @@ USE_HTTPS_IN_ABSOLUTE_URLS = True
 
 # Update your allowed hosts and CSRF trusted origins here.
 ALLOWED_HOSTS = [
-    "*",
+    "shadcn-django.com",
 ]
-CSRF_TRUSTED_ORIGINS = []
+CSRF_TRUSTED_ORIGINS = ["https://shadcn-django.com"]
