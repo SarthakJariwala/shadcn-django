@@ -10,4 +10,5 @@ dependencies = [
     "django-htmx",
     "whitenoise>=6.8.2",
     "gunicorn>=23.0.0",
+    "django-cotton>=1.6.0",
 ]

@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 import os
-import re
 from pathlib import Path
 
 import environ
@@ -28,7 +27,10 @@ env.read_env(os.path.join(BASE_DIR, ".env"))
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY", default="django-insecure-3472^sitrt^-xx#!u-t_4bi2ac5&6^i8%0s9!3!zyy#uf#rq44")
+SECRET_KEY = env(
+    "SECRET_KEY",
+    default="django-insecure-3472^sitrt^-xx#!u-t_4bi2ac5&6^i8%0s9!3!zyy#uf#rq44",
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=True)
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_htmx",
+    "django_cotton",
 ]
 
 MIDDLEWARE = [
@@ -89,7 +92,6 @@ if "DATABASE_URL" in env:
 else:
     DATABASES = {
         "default": {
-            
             "ENGINE": "django.db.backends.sqlite3",
             "NAME": BASE_DIR / "db.sqlite3",
             "OPTIONS": {
@@ -105,9 +107,8 @@ else:
                     PRAGMA cache_size = 2000;
                 """,
             },
-            
         }
-}
+    }
 
 
 # Password validation

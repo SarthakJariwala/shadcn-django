@@ -4,7 +4,32 @@
 <h1>This is the home page</h1>
 <p>Find it in todo/templates/home.html</p>
 
-<button hx-get="{% url 'click' %}" hx-swap="afterend">
-    HTMX-powered click
-</button>
+<div class="mx-auto w-full min-w-0 max-w-2xl">
+
+    <div class="space-y-2">
+        <h1 class="scroll-m-20 text-3xl font-bold tracking-tight">Button</h1>
+        <p class="text-base text-muted-foreground">Displays a button or a component that looks like a button.</p>
+    </div>
+
+    <div class="pb-12 pt-8">
+        <c-button hx-get="{% url 'click' %}" hx-swap="afterend">
+            HTMX-powered click
+        </c-button>
+    </div>
+
+    <div class="space-y-2">
+        <h2 class="font-heading mt-16 scroll-m-20 border-b pb-4 text-xl font-semibold tracking-tight first:mt-0">
+            Installation
+        </h2>
+        <code class="text-sm text-muted-foreground">uvx shadcn_django@latest add button</code>
+    </div>
+
+    <div class="space-y-2">
+        <h2 class="font-heading mt-16 scroll-m-20 border-b pb-4 text-xl font-semibold tracking-tight first:mt-0">
+            Usage
+        </h2>
+        <code class="text-sm text-muted-foreground">uvx shadcn_django@latest add button</code>
+    </div>
+
+</div>
 {% endblock %}
