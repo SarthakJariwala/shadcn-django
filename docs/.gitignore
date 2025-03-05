@@ -11,7 +11,6 @@ wheels/
 
 # Django-generated files
 db.sqlite3
-static/
 media/
 
 # Virtual environments
