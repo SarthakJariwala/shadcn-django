@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h1>This is the home page</h1>
-<p>Find it in todo/templates/home.html</p>
 
 <div class="mx-auto w-full min-w-0 max-w-2xl">
 
@@ -12,19 +10,23 @@
     </div>
 
     <div class="pb-12 pt-8">
-        <c-button hx-get="{% url 'click' %}" hx-swap="afterend">
-            HTMX-powered click
-        </c-button>
+        <c-button>Button</c-button>
     </div>
 
-    <div class="space-y-2">
+    <div class="pb-12 pt-8">
         <h2 class="font-heading mt-16 scroll-m-20 border-b pb-4 text-xl font-semibold tracking-tight first:mt-0">
             Installation
         </h2>
-        <code class="text-sm text-muted-foreground">uvx shadcn_django@latest add button</code>
+        <div class="pt-4">
+            <code class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-md">
+                <span class="line">
+                uvx shadcn_django@latest add button
+                </span>
+            </code>
+        </div>
     </div>
 
-    <div class="space-y-2">
+    <div class="pb-12 pt-8">
         <h2 class="font-heading mt-16 scroll-m-20 border-b pb-4 text-xl font-semibold tracking-tight first:mt-0">
             Usage
         </h2>

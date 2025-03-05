@@ -8,9 +8,23 @@
         <meta name="csrf-token" content="" />
         <script src="{% static 'js/htmx.min.js' %}" defer></script>
         <script src="{% static 'js/alpine.min.js' %}" defer></script>
+        <link rel='stylesheet' href="{% static 'css/output.css' %}">
         <title>shadcn/ui for Django</title>
     </head>
-    <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
-        {% block body %}{% endblock %}
+
+    <body
+       class="min-h-svh bg-background font-sans antialiased"
+       hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+    >
+        <nav class="flex items-start justify-center">
+            <ul class="flex gap-4">
+                <li><a href="/">Introduction</a></li>
+                <li><a href="/docs">Components</a></li>
+            </ul>
+        </nav>
+        <div class="flex flex-col items-center justify-center mt-32">
+            {% block body %}{% endblock %}
+        </div>
+
     </body>
 </html>
