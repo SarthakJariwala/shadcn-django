@@ -87,29 +87,7 @@ WSGI_APPLICATION = "docs.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-if "DATABASE_URL" in env:
-    DATABASES = {"default": env.db()}
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-            "OPTIONS": {
-                "transaction_mode": "IMMEDIATE",
-                "timeout": 5,  # seconds
-                "init_command": """
-                    PRAGMA foreign_keys = ON;
-                    PRAGMA journal_mode = WAL;
-                    PRAGMA synchronous = NORMAL;
-                    PRAGMA temp_store = MEMORY;
-                    PRAGMA mmap_size = 134217728;
-                    PRAGMA journal_size_limit = 67108864;
-                    PRAGMA cache_size = 2000;
-                """,
-            },
-        }
-    }
+DATABASES = {}
 
 
 # Password validation
