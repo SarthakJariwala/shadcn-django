@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load code_display %}
+
+{% block body %}
+
+<c-docs.layout.content>
+
+    <c-docs.page-header
+        title="Button"
+        description="Displays a button or a component that looks like a button."
+    >
+        <c-button>Button</c-button>
+    </c-docs.page-header>
+
+    <c-docs.component-section title="Installation">
+        <c-docs.code-example language="bash">uvx shadcn_django@latest add button</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Usage">
+        <c-docs.demo-section>
+            <c-button>Button</c-button>
+        </c-docs.demo-section>
+
+        <c-docs.code-example language="html">{{ "<c-button>Button</c-button>" | display_code }}</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Examples">
+        <c-docs.example-item title="Primary" language="html">
+            <c-button>Button</c-button>
+            <c-slot name="code">{{ "<c-button>Button</c-button>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="Secondary" language="html">
+            <c-button variant="secondary">Button</c-button>
+            <c-slot name="code">{{ "<c-button variant='secondary'>Button</c-button>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="Destructive" language="html">
+            <c-button variant="destructive">Button</c-button>
+            <c-slot name="code">{{ "<c-button variant='destructive'>Button</c-button>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="Outline" language="html">
+            <c-button variant="outline">Button</c-button>
+            <c-slot name="code">{{ "<c-button variant='outline'>Button</c-button>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="Ghost" language="html">
+            <c-button variant="ghost">Button</c-button>
+            <c-slot name="code">{{ "<c-button variant='ghost'>Button</c-button>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="Link" language="html">
+            <c-button variant="link">Button</c-button>
+            <c-slot name="code">{{ "<c-button variant='link'>Button</c-button>" | display_code }}</c-slot>
+        </c-docs.example-item>
+    </c-docs.component-section>
+
+</c-docs.layout.content>
+{% endblock %}
