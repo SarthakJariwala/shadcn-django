@@ -37,7 +37,7 @@ WORKDIR /code
 COPY --chown=django:django . /code
 
 RUN DEBUG=False python ./manage.py collectstatic --noinput --settings=docs.settings_production
-RUN chown django:django -R static
+RUN chown django:django -R staticfiles
 
 USER django
 
