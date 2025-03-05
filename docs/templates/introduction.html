@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block body %}
+<c-docs.layout.content>
+    <c-docs.page-header
+        title="Introduction"
+        description="Django specific port of shadcn/ui."
+    >
+        <div class="prose">
+            <c-docs.para>
+                This is an unofficial Django port of <a href="https://ui.shadcn.com/" class="underline underline-offset-2">shadcn/ui</a>.
+                This project is not affiliated with <a href="https://twitter.com/shadcn" class="underline underline-offset-2">shadcn</a>.
+            </c-docs.para>
+
+            <c-docs.para>
+            Beautifully designed components that you can copy and paste into your apps, based on shadcn/ui.
+            </c-docs.para>
+
+            <c-docs.para>
+            Components are built with <a href="https://tailwindcss.com/" class="underline underline-offset-2">Tailwind CSS</a>
+            and <a href="https://alpinejs.dev/" class="underline underline-offset-2">Alpine.js</a>
+            and are <a href="https://htmx.org" class="underline underline-offset-2">HTMX-compatible</a>,
+            making them highly customizable and interactive.
+            </c-docs.para>
+
+            <c-docs.para>
+            <strong>This is NOT a component library.</strong> It's a collection of re-usable components that you can add to your Django templates using the CLI.
+            </c-docs.para>
+
+            <c-docs.para>
+                <strong>What do you mean not a component library?</strong>
+            </c-docs.para>
+
+            <c-docs.para>
+            It means you do not install it as a dependency.
+            </c-docs.para>
+
+            <c-docs.para>
+            Pick the components you need. Use the CLI to automatically add the components, and customize to your needs. The code is yours.
+            </c-docs.para>
+        </div>
+
+    </c-docs.page-header>
+</c-docs.layout.content>
+{% endblock %}
