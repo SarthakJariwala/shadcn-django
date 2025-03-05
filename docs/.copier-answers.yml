@@ -1,0 +1,8 @@
+# Changes here will be overwritten by Copier
+_commit: v0.3.0
+_src_path: gh:SarthakJariwala/lfp-htmx-template
+database: sqlite
+docker_dev: false
+docker_prod: true
+project_name: docs
+

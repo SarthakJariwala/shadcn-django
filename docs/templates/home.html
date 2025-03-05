@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>This is the home page</h1>
+<p>Find it in todo/templates/home.html</p>
+
+<button hx-get="{% url 'click' %}" hx-swap="afterend">
+    HTMX-powered click
+</button>
+{% endblock %}
