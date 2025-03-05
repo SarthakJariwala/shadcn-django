@@ -101,7 +101,7 @@ Add the CSS and Alpine.js to your base template `<head>` tag:
 Run Tailwind to generate your CSS:
 
 ```bash
-npx tailwindcss -i input.css -o static/css/output.css --watch
+npx @tailwindcss/cli -i input.css -o static/css/output.css --watch
 ```
 
 ### 3. Add components

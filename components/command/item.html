@@ -18,7 +18,7 @@
     value = '{{ value }}';
   "
   x-bind:class="{ 'bg-accent text-accent-foreground': isHovered || selectedIndex === items.indexOf($el) }"
-  class="relative flex cursor-default gap-2 select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0
+  class="relative flex cursor-default gap-2 select-none items-center rounded-xs px-2 py-1.5 text-sm outline-hidden data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0
   {% if class %}{{ class }}{% endif %}"
   data-value="{{ value }}"
   role="option"
