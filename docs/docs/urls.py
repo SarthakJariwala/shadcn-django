@@ -18,10 +18,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from .views import click, home
+from .views import home
 
 urlpatterns = [
-    path("click/", click, name="click"),
     path("", home, name="home"),
     path("admin/", admin.site.urls),
 ]
