@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load code_display %}
+
+{% block body %}
+
+<c-docs.layout.content>
+
+    <c-docs.page-header
+        title="Accordion"
+        description="A vertically stacked set of interactive headings that each reveal a section of content."
+    >
+        <c-accordion type="single" collapsible="true">
+          <c-accordion.item value="item-1">
+            <c-accordion.trigger value="item-1">Is it for Django?</c-accordion.trigger>
+            <c-accordion.content value="item-1">
+              Yes. All components are compatible with Django.
+            </c-accordion.content>
+          </c-accordion.item>
+
+          <c-accordion.item value="item-2">
+            <c-accordion.trigger value="item-2">Is it styled?</c-accordion.trigger>
+            <c-accordion.content value="item-2">
+              Yes. It comes with default styles that match the other components in this library.
+            </c-accordion.content>
+          </c-accordion.item>
+
+          <c-accordion.item value="item-3">
+            <c-accordion.trigger value="item-3">Is it animated?</c-accordion.trigger>
+            <c-accordion.content value="item-3">
+              Yes. It's animated by default, but you can disable it if you prefer.
+            </c-accordion.content>
+          </c-accordion.item>
+        </c-accordion>
+    </c-docs.page-header>
+
+    <c-docs.component-section title="Installation">
+        <c-docs.code-example language="bash">uvx shadcn_django@latest add accordion</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Usage">
+        <c-docs.code-example language="html">{{ "<c-accordion type='single' collapsible='true'>
+    <c-accordion.item value='item-1'>
+        <c-accordion.trigger value='item-1'>Is it for Django?</c-accordion.trigger>
+        <c-accordion.content value='item-1'>
+            Yes. All components are compatible with Django.
+        </c-accordion.content>
+    </c-accordion.item>
+</c-accordion>" | display_code }}</c-docs.code-example>
+    </c-docs.component-section>
+
+</c-docs.layout.content>
+{% endblock %}
