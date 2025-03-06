@@ -10,7 +10,10 @@
         description="A modal dialog that interrupts the user with important content and expects a response."
     >
         <c-alert-dialog>
-            <c-alert-dialog.trigger>Open Dialog</c-alert-dialog.trigger>
+            <c-button variant="outline">
+                <c-alert-dialog.trigger>Open Dialog</c-alert-dialog.trigger>
+            </c-button>
+
             <c-alert-dialog.content>
                 <c-alert-dialog.header>
                     <c-alert-dialog.title>Are you absolutely sure?</c-alert-dialog.title>
@@ -33,8 +36,12 @@
 
     <c-docs.component-section title="Usage">
         <c-docs.code-example language="html">{{ "<c-alert-dialog>
-    <c-alert-dialog.trigger>Open Dialog</c-alert-dialog.trigger>
+    <c-button variant='outline'>
+        <c-alert-dialog.trigger>Open Dialog</c-alert-dialog.trigger>
+    </c-button>
+
     <c-alert-dialog.content>
+
         <c-alert-dialog.header>
             <c-alert-dialog.title>Are you absolutely sure?</c-alert-dialog.title>
             <c-alert-dialog.description>
@@ -42,11 +49,13 @@
             and remove your data from our servers.
             </c-alert-dialog.description>
         </c-alert-dialog.header>
+
         <c-alert-dialog.footer>
             <c-alert-dialog.cancel>Cancel</c-alert-dialog.cancel>
             <c-alert-dialog.action>Continue</c-alert-dialog.action>
         </c-alert-dialog.footer>
     </c-alert-dialog.content>
+
 </c-alert-dialog>" | display_code }}</c-docs.code-example>
     </c-docs.component-section>
 
