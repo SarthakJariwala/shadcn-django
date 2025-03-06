@@ -2,9 +2,13 @@
 
 Beautifully designed components that you can copy and paste into your apps, based on [shadcn/ui](https://ui.shadcn.com/).
 
-This is a Django specific port of shadcn/ui. The components are built with Tailwind CSS and Alpine.js, making them highly customizable and interactive without the need for a full React setup.
+This is an unofficial Django port of [shadcn/ui](https://ui.shadcn.com/). This project is not affiliated with shadcn.
+
+Components are built with Tailwind CSS and Alpine.js and are HTMX-compatible, making them highly customizable and interactive.
 
 `shadcn_django` provides a CLI tool that allows you to initialize and add shadcn-style components to your Django templates.
+
+Docs: https://shadcn-django.com
 
 ## Features
 
