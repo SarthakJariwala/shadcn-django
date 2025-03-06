@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load code_display %}
+
+{% block body %}
+
+<c-docs.layout.content>
+
+    <c-docs.page-header
+        title="Badge"
+        description="Displays a badge or a component that looks like a badge."
+    >
+        <c-badge variant="default">Default</c-badge>
+    </c-docs.page-header>
+
+    <c-docs.component-section title="Installation">
+        <c-docs.code-example language="bash">uvx shadcn_django@latest add badge</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Usage">
+        <c-docs.demo-section>
+            <c-badge variant="default">Default</c-badge>
+        </c-docs.demo-section>
+        <c-docs.code-example language="html">{{ "<c-badge variant='default'>Default</c-badge>" | display_code }}</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Examples">
+        <c-docs.example-item title="Primary" language="html">
+            <c-badge>Default</c-badge>
+            <c-slot name="code">{{ "<c-badge>Default</c-badge>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="Secondary" language="html">
+            <c-badge variant="secondary">Secondary</c-badge>
+            <c-slot name="code">{{ "<c-badge variant='secondary'>Secondary</c-badge>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="Destructive" language="html">
+            <c-badge variant="destructive">Destructive</c-badge>
+            <c-slot name="code">{{ "<c-badge variant='destructive'>Destructive</c-badge>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="Outline" language="html">
+            <c-badge variant="outline">Outline</c-badge>
+            <c-slot name="code">{{ "<c-badge variant='outline'>Outline</c-badge>" | display_code }}</c-slot>
+        </c-docs.example-item>
+    </c-docs.component-section>
+
+</c-docs.layout.content>
+{% endblock %}

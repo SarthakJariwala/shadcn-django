@@ -17,7 +17,15 @@ Including another URLconf
 
 from django.urls import path
 
-from .views import accordion, alert, alert_dialog, button, installation, introduction
+from .views import (
+    accordion,
+    alert,
+    alert_dialog,
+    badge,
+    button,
+    installation,
+    introduction,
+)
 
 urlpatterns = [
     path("", introduction, name="introduction"),
@@ -26,5 +34,6 @@ urlpatterns = [
     path("accordion/", accordion, name="accordion"),
     path("alert/", alert, name="alert"),
     path("alert-dialog/", alert_dialog, name="alert_dialog"),
+    path("badge/", badge, name="badge"),
     path("button/", button, name="button"),
 ]

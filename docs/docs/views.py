@@ -23,3 +23,7 @@ def alert(request):
 
 def alert_dialog(request):
     return render(request, "alert_dialog.html")
+
+
+def badge(request):
+    return render(request, "badge.html")
