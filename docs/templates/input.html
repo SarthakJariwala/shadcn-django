@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load code_display %}
+
+{% block body %}
+
+<c-docs.layout.content>
+
+    <c-docs.page-header
+        title="Input"
+        description="Displays a form input field or a component that looks like an input field."
+    >
+        <c-input type="email" placeholder="Email" />
+    </c-docs.page-header>
+
+    <c-docs.component-section title="Installation">
+        <c-docs.code-example language="bash">uvx shadcn_django@latest add input</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Usage">
+        <c-docs.demo-section>
+            <c-input type="email" placeholder="Email" />
+        </c-docs.demo-section>
+
+        <c-docs.code-example language="html">{{ "<c-input type='email' placeholder='Email' />" | display_code }}</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Examples">
+        <c-docs.example-item title="Default" language="html">
+            <c-input type="email" placeholder="Email" />
+            <c-slot name="code">{{ "<c-input type='email' placeholder='Email' />" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="File" language="html">
+            <c-input type="file" id="picture" />
+            <c-slot name="code">{{ "<c-input type='file' id='picture' />" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="Disabled" language="html">
+            <c-input type="email" placeholder="Email" disabled />
+            <c-slot name="code">{{ "<c-input type='email' placeholder='Email' disabled />" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="With Label" language="html">
+            <div class="grid w-full max-w-sm items-center gap-1.5">
+                <c-label for="email">Email</c-label>
+                <c-input type="email" placeholder="you@example.com" />
+            </div>
+            <c-slot name="code">{{ "<div class='grid w-full max-w-sm items-center gap-1.5'>
+    <c-label for='email'>Email</c-label>
+    <c-input type='email' placeholder='you@example.com' />
+</div>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="With Button" language="html">
+            <div class="flex w-full max-w-sm items-center space-x-2">
+                <c-input type="email" placeholder="you@example.com" />
+                <c-button type="submit">Subscribe</c-button>
+            </div>
+            <c-slot name="code">{{ "<div class='flex w-full max-w-sm items-center space-x-2'>
+    <c-input type='email' placeholder='you@example.com' />
+    <c-button type='submit'>Subscribe</c-button>
+</div>" | display_code }}</c-slot>
+        </c-docs.example-item>
+    </c-docs.component-section>
+
+</c-docs.layout.content>
+{% endblock %}

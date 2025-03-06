@@ -51,3 +51,7 @@ def dropdown_menu(request):
 
 def form(request):
     return render(request, "form.html")
+
+
+def input(request):
+    return render(request, "input.html")
