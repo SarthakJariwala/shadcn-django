@@ -24,6 +24,7 @@ from .views import (
     badge,
     button,
     card,
+    checkbox,
     installation,
     introduction,
 )
@@ -38,4 +39,5 @@ urlpatterns = [
     path("badge/", badge, name="badge"),
     path("button/", button, name="button"),
     path("card/", card, name="card"),
+    path("checkbox/", checkbox, name="checkbox"),
 ]

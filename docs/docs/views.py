@@ -31,3 +31,7 @@ def button(request):
 
 def card(request):
     return render(request, "card.html")
+
+
+def checkbox(request):
+    return render(request, "checkbox.html")
