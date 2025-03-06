@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load code_display %}
+
+{% block body %}
+
+<c-docs.layout.content>
+
+    <c-docs.page-header
+        title="Card"
+        description="Displays a card with header, content, and footer."
+    >
+        <c-card class="w-[380px]">
+            <c-card.header>
+                <c-card.title>Create Project</c-card.title>
+                <c-card.description>Deploy your new project in one-click.</c-card.description>
+            </c-card.header>
+            <c-card.content class="space-y-2">
+                <div class="flex flex-col space-y-1">
+                    <c-label for="name">Name</c-label>
+                    <c-input id="name" placeholder="Name of your project" />
+                </div>
+            </c-card.content>
+            <c-card.footer class="flex justify-between">
+                <c-button variant="outline">Cancel</c-button>
+                <c-button>Submit</c-button>
+            </c-card.footer>
+        </c-card>
+    </c-docs.page-header>
+
+    <c-docs.component-section title="Installation">
+        <c-docs.code-example language="bash">uvx shadcn_django@latest add card</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Usage">
+        <c-docs.code-example language="html">{{ "<c-card class='w-[380px]'>
+    <c-card.header>
+        <c-card.title>Title</c-card.title>
+        <c-card.description>Description</c-card.description>
+    </c-card.header>
+    <c-card.content>Content</c-card.content>
+    <c-card.footer>
+        Footer
+    </c-card.footer>
+</c-card>" | display_code }}</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Examples">
+        <c-docs.example-item language="html">
+            <c-card class="w-[380px]">
+                <c-card.header>
+                    <c-card.title>Create Project</c-card.title>
+                    <c-card.description>Deploy your new project in one-click.</c-card.description>
+                </c-card.header>
+                <c-card.content class="space-y-2">
+                    <div class="flex flex-col space-y-1">
+                        <c-label for="name">Name</c-label>
+                        <c-input id="name" placeholder="Name of your project" />
+                    </div>
+                </c-card.content>
+                <c-card.footer class="flex justify-between">
+                    <c-button variant="outline">Cancel</c-button>
+                    <c-button>Submit</c-button>
+                </c-card.footer>
+            </c-card>
+
+            <c-slot name="code">{{ "<c-card class='w-[380px]'>
+    <c-card.header>
+        <c-card.title>Create Project</c-card.title>
+        <c-card.description>Deploy your new project in one-click.</c-card.description>
+    </c-card.header>
+    <c-card.content class='space-y-2'>
+        <div class='flex flex-col space-y-1'>
+            <c-label for='name'>Name</c-label>
+            <c-input id='name' placeholder='Name of your project' />
+        </div>
+    </c-card.content>
+    <c-card.footer class='flex justify-between'>
+        <c-button variant='outline'>Cancel</c-button>
+        <c-button>Submit</c-button>
+    </c-card.footer>
+</c-card>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+    </c-docs.component-section>
+
+</c-docs.layout.content>
+{% endblock %}

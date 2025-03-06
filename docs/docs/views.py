@@ -9,10 +9,6 @@ def installation(request):
     return render(request, "installation.html")
 
 
-def button(request):
-    return render(request, "button.html")
-
-
 def accordion(request):
     return render(request, "accordion.html")
 
@@ -27,3 +23,11 @@ def alert_dialog(request):
 
 def badge(request):
     return render(request, "badge.html")
+
+
+def button(request):
+    return render(request, "button.html")
+
+
+def card(request):
+    return render(request, "card.html")

@@ -23,6 +23,7 @@ from .views import (
     alert_dialog,
     badge,
     button,
+    card,
     installation,
     introduction,
 )
@@ -36,4 +37,5 @@ urlpatterns = [
     path("alert-dialog/", alert_dialog, name="alert_dialog"),
     path("badge/", badge, name="badge"),
     path("button/", button, name="button"),
+    path("card/", card, name="card"),
 ]
