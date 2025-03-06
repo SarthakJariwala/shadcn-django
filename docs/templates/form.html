@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load code_display %}
+
+{% block body %}
+
+<c-docs.layout.content>
+
+    <c-docs.page-header
+        title="Form"
+        description="Displays well-designed HTML forms."
+    >
+        <form class="w-2/3 space-y-4">
+            <c-form.field>
+                <c-form.label for="email">Email</c-form.label>
+                <c-input id="email" type="email" placeholder="Email"></c-input>
+                <c-form.description>
+                    This will be your username.
+                </c-form.description>
+            </c-form.field>
+            <c-form.field>
+                <c-form.label for="password">Password</c-form.label>
+                <c-input id="password" type="password" placeholder="Password"></c-input>
+            </c-form.field>
+            <c-button type="submit">
+                Sign in
+            </c-button>
+        </form>
+    </c-docs.page-header>
+
+    <c-docs.component-section title="Installation">
+        <c-docs.code-example language="bash">uvx shadcn_django@latest add form</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Usage">
+        <c-docs.code-example language="html">{{ "<form class='w-2/3 space-y-4'>
+
+    <c-form.field>
+        <c-form.label for='email'>Email</c-form.label>
+        <c-input id='email' type='email' placeholder='Email'></c-input>
+        <c-form.description>
+            This will be your username.
+        </c-form.description>
+    </c-form.field>
+
+    <c-form.field>
+        <c-form.label for='password'>Password</c-form.label>
+        <c-input id='password' type='password' placeholder='Password'></c-input>
+    </c-form.field>
+
+    <c-button type='submit'>Sign in</c-button>
+</form>" | display_code }}</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Examples">
+        <c-docs.example-item language="html">
+            <form class="w-2/3 space-y-4">
+                <c-form.field>
+                    <c-form.label for="username" error="true">Username</c-form.label>
+                    <c-input id="username" type="text" placeholder="Username"></c-input>
+                    <c-form.error>
+                        Username already taken.
+                    </c-form.error>
+                </c-form.field>
+                <c-button type="submit">
+                    Submit
+                </c-button>
+            </form>
+
+            <c-slot name="code">{{ "<form class='w-2/3 space-y-4'>
+    <c-form.field>
+        <c-form.label for='username' error='true'>Username</c-form.label>
+        <c-input id='username' type='text' placeholder='Username'></c-input>
+        <c-form.error>
+            Username already taken.
+        </c-form.error>
+    </c-form.field>
+    <c-button type='submit'>
+        Submit
+    </c-button>
+</form>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+    </c-docs.component-section>
+
+</c-docs.layout.content>
+{% endblock %}

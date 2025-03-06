@@ -47,3 +47,7 @@ def dialog(request):
 
 def dropdown_menu(request):
     return render(request, "dropdown_menu.html")
+
+
+def form(request):
+    return render(request, "form.html")
