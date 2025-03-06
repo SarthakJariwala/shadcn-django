@@ -35,3 +35,7 @@ def card(request):
 
 def checkbox(request):
     return render(request, "checkbox.html")
+
+
+def command(request):
+    return render(request, "command.html")

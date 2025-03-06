@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load code_display %}
+
+{% block body %}
+
+<c-docs.layout.content>
+
+    <c-docs.page-header
+        title="Command"
+        description="Fast, composable, unstyled command menu for Django."
+    >
+        <c-command class="rounded-lg border shadow-md md:min-w-[450px]">
+          <c-command.input placeholder="Type a command or search..." />
+          <c-command.list>
+            <c-command.empty>No results found.</c-command.empty>
+            <c-command.group heading="Suggestions">
+              <c-command.item value="calendar">Calendar</c-command.item>
+              <c-command.item value="search-emoji">Search Emoji</c-command.item>
+              <c-command.item value="calculator">Calculator</c-command.item>
+            </c-command.group>
+            <c-command.separator />
+            <c-command.group heading="Settings">
+              <c-command.item value="profile">
+                Profile
+                <c-command.shortcut>⌘P</c-command.shortcut>
+              </c-command.item>
+              <c-command.item value="billing">
+                Billing
+                <c-command.shortcut>⌘B</c-command.shortcut>
+              </c-command.item>
+              <c-command.item value="settings">
+                Settings
+                <c-command.shortcut>⌘S</c-command.shortcut>
+              </c-command.item>
+            </c-command.group>
+          </c-command.list>
+        </c-command>
+    </c-docs.page-header>
+
+    <c-docs.component-section title="Installation">
+        <c-docs.code-example language="bash">uvx shadcn_django@latest add command</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Usage">
+        <c-docs.code-example language="html">{{ "<c-command class='rounded-lg border shadow-md md:min-w-[450px]'>
+    <c-command.input placeholder='Type a command or search...' />
+    <c-command.list>
+        <c-command.empty>No results found.</c-command.empty>
+        <c-command.group heading='Suggestions'>
+            <c-command.item value='calendar'>Calendar</c-command.item>
+            <c-command.item value='search-emoji'>Search Emoji</c-command.item>
+            <c-command.item value='calculator'>Calculator</c-command.item>
+        </c-command.group>
+        <c-command.separator />
+        <c-command.group heading='Settings'>
+            <c-command.item value='profile'>
+            Profile
+            <c-command.shortcut>⌘P</c-command.shortcut>
+            </c-command.item>
+            <c-command.item value='billing'>
+            Billing
+            <c-command.shortcut>⌘B</c-command.shortcut>
+            </c-command.item>
+            <c-command.item value='settings'>
+            Settings
+            <c-command.shortcut>⌘S</c-command.shortcut>
+            </c-command.item>
+        </c-command.group>
+    </c-command.list>
+</c-command>" | display_code }}</c-docs.code-example>
+    </c-docs.component-section>
+
+</c-docs.layout.content>
+{% endblock %}
