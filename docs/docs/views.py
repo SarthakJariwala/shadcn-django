@@ -43,3 +43,7 @@ def command(request):
 
 def dialog(request):
     return render(request, "dialog.html")
+
+
+def dropdown_menu(request):
+    return render(request, "dropdown_menu.html")

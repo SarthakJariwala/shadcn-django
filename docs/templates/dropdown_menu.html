@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load code_display %}
+
+{% block body %}
+
+<c-docs.layout.content>
+
+    <c-docs.page-header
+        title="Dropdown Menu"
+        description="Displays a menu to the user — such as a set of actions or functions — triggered by a button."
+    >
+        <c-dropdown-menu>
+            <c-button variant="outline">
+                <c-dropdown-menu.trigger>Open</c-dropdown-menu.trigger>
+            </c-button>
+            <c-dropdown-menu.content class="w-56">
+                <c-dropdown-menu.label>My Account</c-dropdown-menu.label>
+                <c-dropdown-menu.separator />
+                <c-dropdown-menu.item>Profile</c-dropdown-menu.item>
+                <c-dropdown-menu.item>Billing</c-dropdown-menu.item>
+                <c-dropdown-menu.separator />
+                <c-dropdown-menu.item>Settings</c-dropdown-menu.item>
+            </c-dropdown-menu.content>
+        </c-dropdown-menu>
+    </c-docs.page-header>
+
+    <c-docs.component-section title="Installation">
+        <c-docs.code-example language="bash">uvx shadcn_django@latest add dropdown_menu</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Usage">
+        <c-docs.code-example language="html">{{ "<c-dropdown-menu>
+    <c-button variant='outline'>
+        <c-dropdown-menu.trigger>Open</c-dropdown-menu.trigger>
+    </c-button>
+    <c-dropdown-menu.content class='w-56'>
+        <c-dropdown-menu.label>My Account</c-dropdown-menu.label>
+        <c-dropdown-menu.separator />
+        <c-dropdown-menu.item>Profile</c-dropdown-menu.item>
+        <c-dropdown-menu.item>Billing</c-dropdown-menu.item>
+        <c-dropdown-menu.separator />
+        <c-dropdown-menu.item>Settings</c-dropdown-menu.item>
+    </c-dropdown-menu.content>
+</c-dropdown-menu>" | display_code }}</c-docs.code-example>
+    </c-docs.component-section>
+
+</c-docs.layout.content>
+{% endblock %}

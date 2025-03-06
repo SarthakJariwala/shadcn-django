@@ -27,6 +27,7 @@ from .views import (
     checkbox,
     command,
     dialog,
+    dropdown_menu,
     installation,
     introduction,
 )
@@ -44,4 +45,5 @@ urlpatterns = [
     path("checkbox/", checkbox, name="checkbox"),
     path("command/", command, name="command"),
     path("dialog/", dialog, name="dialog"),
+    path("dropdown-menu/", dropdown_menu, name="dropdown_menu"),
 ]
