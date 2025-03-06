@@ -39,3 +39,7 @@ def checkbox(request):
 
 def command(request):
     return render(request, "command.html")
+
+
+def dialog(request):
+    return render(request, "dialog.html")
