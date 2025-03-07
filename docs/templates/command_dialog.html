@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load code_display %}
+
+{% block body %}
+
+<c-docs.layout.content>
+
+    <c-docs.page-header
+        title="Command"
+        description="Fast, composable, unstyled command menu for Django."
+    >
+        <c-command-dialog shortcut_key="k">
+          <c-slot name="trigger_slot">
+              <p class="text-sm text-muted-foreground">
+                Press
+                <kbd
+                    class="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100"
+                >
+                    <span class="text-xs">⌘</span>K
+                </kbd>
+            </p>
+          </c-slot>
+
+          <c-command.input placeholder="Type a command or search..." />
+          <c-command.list>
+            <c-command.empty>No results found.</c-command.empty>
+            <c-command.group heading="Suggestions">
+              <c-command.item value="calendar">Calendar</c-command.item>
+              <c-command.item value="search-emoji">Search Emoji</c-command.item>
+              <c-command.item value="calculator">Calculator</c-command.item>
+            </c-command.group>
+          </c-command.list>
+        </c-command-dialog>
+    </c-docs.page-header>
+
+    <c-docs.component-section title="Installation">
+        <c-docs.code-example language="bash">uvx shadcn_django@latest add command_dialog</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Usage">
+        <c-docs.code-example language="html">{{ "<c-command-dialog shortcut_key='k'>
+    <c-slot name='trigger_slot'>
+        <p class='text-sm text-muted-foreground'>
+        Press
+        <kbd class='pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100'>
+            <span class='text-xs'>⌘</span>K
+        </kbd>
+        </p>
+    </c-slot>
+
+    <c-command.input placeholder='Type a command or search...' />
+    <c-command.list>
+    <c-command.empty>No results found.</c-command.empty>
+    <c-command.group heading='Suggestions'>
+        <c-command.item value='calendar'>Calendar</c-command.item>
+        <c-command.item value='search-emoji'>Search Emoji</c-command.item>
+        <c-command.item value='calculator'>Calculator</c-command.item>
+    </c-command.group>
+    </c-command.list>
+</c-command-dialog>" | display_code }}</c-docs.code-example>
+    </c-docs.component-section>
+
+</c-docs.layout.content>
+{% endblock %}

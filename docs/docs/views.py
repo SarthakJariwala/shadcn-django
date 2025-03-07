@@ -41,6 +41,10 @@ def command(request):
     return render(request, "command.html")
 
 
+def command_dialog(request):
+    return render(request, "command_dialog.html")
+
+
 def dialog(request):
     return render(request, "dialog.html")
 
