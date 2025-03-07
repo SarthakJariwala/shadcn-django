@@ -1,6 +1,6 @@
 [project]
 name = "shadcn_django"
-version = "0.12.4"
+version = "0.12.5"
 description = "shadcn/ui for Django"
 readme = "README.md"
 authors = [{ name = "Sarthak Jariwala", email = "sarthak@sarthakjariwala.com" }]
