@@ -63,3 +63,7 @@ def label(request):
 
 def progress(request):
     return render(request, "progress.html")
+
+
+def table(request):
+    return render(request, "table.html")

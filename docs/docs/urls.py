@@ -34,6 +34,7 @@ from .views import (
     introduction,
     label,
     progress,
+    table,
 )
 
 urlpatterns = [
@@ -54,4 +55,5 @@ urlpatterns = [
     path("input/", input, name="input"),
     path("label/", label, name="label"),
     path("progress/", progress, name="progress"),
+    path("table/", table, name="table"),
 ]
