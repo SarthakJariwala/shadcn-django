@@ -67,3 +67,7 @@ def progress(request):
 
 def table(request):
     return render(request, "table.html")
+
+
+def tabs(request):
+    return render(request, "tabs.html")
