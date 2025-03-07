@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load code_display %}
+
+{% block body %}
+
+<c-docs.layout.content>
+
+    <c-docs.page-header
+        title="Textarea"
+        description="Displays a form textarea or a component that looks like a textarea."
+    >
+        <c-textarea placeholder="Type your message here." />
+    </c-docs.page-header>
+
+    <c-docs.component-section title="Installation">
+        <c-docs.code-example language="bash">uvx shadcn_django@latest add textarea</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Usage">
+        <c-docs.demo-section>
+            <c-textarea placeholder="Type your message here." />
+        </c-docs.demo-section>
+
+        <c-docs.code-example language="html">{{ "<c-textarea placeholder='Type your message here.' />" | display_code }}</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Examples">
+
+        <c-docs.example-item title="Disabled" language="html">
+            <c-textarea placeholder="Type your message here." disabled />
+            <c-slot name="code">{{ "<c-textarea placeholder='Type your message here.' disabled />" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="With Label" language="html">
+            <div class="grid w-full gap-1.5">
+                <c-label for="message">Your Message</c-label>
+                <c-textarea id="message" placeholder="Type your message here." />
+            </div>
+            <c-slot name="code">{{ "<div class='grid w-full gap-1.5'>
+    <c-label for='message'>Your Message</c-label>
+    <c-textarea id='message' placeholder='Type your message here.' />
+</div>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="With Button" language="html">
+            <div class="grid w-full gap-2">
+                <c-textarea placeholder="Type your message here." />
+                <c-button type="submit">Send message</c-button>
+            </div>
+            <c-slot name="code">{{ "<div class='grid w-full gap-2'>
+    <c-textarea placeholder='Type your message here.' />
+    <c-button type='submit'>Send message</c-button>
+</div>" | display_code }}</c-slot>
+        </c-docs.example-item>
+    </c-docs.component-section>
+
+</c-docs.layout.content>
+{% endblock %}

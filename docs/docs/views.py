@@ -71,3 +71,7 @@ def table(request):
 
 def tabs(request):
     return render(request, "tabs.html")
+
+
+def textarea(request):
+    return render(request, "textarea.html")

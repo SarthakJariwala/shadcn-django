@@ -36,6 +36,7 @@ from .views import (
     progress,
     table,
     tabs,
+    textarea,
 )
 
 urlpatterns = [
@@ -58,4 +59,5 @@ urlpatterns = [
     path("progress/", progress, name="progress"),
     path("table/", table, name="table"),
     path("tabs/", tabs, name="tabs"),
+    path("textarea/", textarea, name="textarea"),
 ]
