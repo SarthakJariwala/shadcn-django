@@ -33,6 +33,7 @@ from .views import (
     installation,
     introduction,
     label,
+    progress,
 )
 
 urlpatterns = [
@@ -52,4 +53,5 @@ urlpatterns = [
     path("form/", form, name="form"),
     path("input/", input, name="input"),
     path("label/", label, name="label"),
+    path("progress/", progress, name="progress"),
 ]

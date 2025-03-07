@@ -59,3 +59,7 @@ def input(request):
 
 def label(request):
     return render(request, "label.html")
+
+
+def progress(request):
+    return render(request, "progress.html")

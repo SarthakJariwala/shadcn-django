@@ -311,6 +311,9 @@
     width: calc(var(--spacing) * 9);
     height: calc(var(--spacing) * 9);
   }
+  .h-2 {
+    height: calc(var(--spacing) * 2);
+  }
   .h-4 {
     height: calc(var(--spacing) * 4);
   }
@@ -355,6 +358,9 @@
   }
   .w-56 {
     width: calc(var(--spacing) * 56);
+  }
+  .w-\[60\%\] {
+    width: 60%;
   }
   .w-\[380px\] {
     width: 380px;
@@ -573,6 +579,9 @@
   }
   .bg-primary {
     background-color: var(--primary);
+  }
+  .bg-primary\/20 {
+    background-color: color-mix(in oklab, var(--primary) 20%, transparent);
   }
   .bg-secondary {
     background-color: var(--secondary);
