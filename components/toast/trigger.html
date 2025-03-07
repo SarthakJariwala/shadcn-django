@@ -1,9 +1,10 @@
 <c-vars variant="default" toast_target></c-vars>
 
-<c-button
+<div
     @click="$dispatch('show-toast', '{{ toast_target }}')"
     class="{% if class %}{{ class }}{% endif %}"
     variant="{{ variant }}"
+    x-data
 >
   {{ slot }}
-</c-button>
+</div>

@@ -16,6 +16,6 @@ dependencies = {
     "progress": [],
     "table": [],
     "tabs": [],
-    "toast": ["button"],
+    "toast": [],
     "textarea": [],
 }
