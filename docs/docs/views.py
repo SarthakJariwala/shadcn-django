@@ -55,3 +55,7 @@ def form(request):
 
 def input(request):
     return render(request, "input.html")
+
+
+def label(request):
+    return render(request, "label.html")

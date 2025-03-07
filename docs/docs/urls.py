@@ -32,6 +32,7 @@ from .views import (
     input,
     installation,
     introduction,
+    label,
 )
 
 urlpatterns = [
@@ -50,4 +51,5 @@ urlpatterns = [
     path("dropdown-menu/", dropdown_menu, name="dropdown_menu"),
     path("form/", form, name="form"),
     path("input/", input, name="input"),
+    path("label/", label, name="label"),
 ]

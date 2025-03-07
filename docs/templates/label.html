@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load code_display %}
+
+{% block body %}
+
+<c-docs.layout.content>
+
+    <c-docs.page-header
+        title="Label"
+        description="Renders an accessible label associated with controls."
+    >
+        <div class="flex items-center space-x-2">
+            <c-checkbox id="terms" />
+            <c-label for="terms">
+                Accept terms and conditions
+            </c-label>
+        </div>
+    </c-docs.page-header>
+
+    <c-docs.component-section title="Installation">
+        <c-docs.code-example language="bash">uvx shadcn_django@latest add label</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Usage">
+        <c-docs.code-example language="html">{{ "<c-label for='terms'>
+    Accept terms and conditions
+</c-label>" | display_code }}</c-docs.code-example>
+    </c-docs.component-section>
+
+</c-docs.layout.content>
+{% endblock %}
