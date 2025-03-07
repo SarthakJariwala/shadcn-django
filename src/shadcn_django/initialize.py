@@ -30,14 +30,14 @@ def init():
             ":rocket: Initialized shadcn_django components!\n\n"
             ":heavy_check_mark: Created "
             + f"'{DEFAULT_COMPONENTS_DIRECTORY}'\n"
-            ":heavy_check_mark: Added 'tailwind.config.js' and CSS required for shadcn components\n\n"
+            ":heavy_check_mark: Added TailwindCSS config required for shadcn components\n\n"
             "[/bold green]"
             "[bold yellow]"
             ":bookmark_tabs: Next steps:\n"
             "[/bold yellow]"
-            ":arrow_right_hook: Ensure you have tailwind v3 and alpine.js installed\n"
+            ":arrow_right_hook: Ensure you have tailwind v4 and alpine.js installed\n"
             ":arrow_right_hook: Add <link rel='stylesheet' href='{% static 'css/output.css' %}'> to your base HTML template\n"
-            ":arrow_right_hook: Run 'npx tailwindcss -i input.css -o static/css/output.css --watch'\n",
+            ":arrow_right_hook: Run 'npx @tailwindcss/cli -i input.css -o static/css/output.css --watch'\n",
             title="Initialization Complete",
             border_style="bold green",
         )
