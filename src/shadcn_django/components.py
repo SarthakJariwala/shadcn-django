@@ -14,6 +14,7 @@ dependencies = {
     "form": ["label"],
     "input": [],
     "label": [],
+    "popover": [],
     "progress": [],
     "table": [],
     "tabs": [],
