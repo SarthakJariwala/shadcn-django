@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load code_display %}
+
+{% block body %}
+
+<c-docs.layout.content>
+
+    <c-docs.page-header
+        title="Toast"
+        description="A succinct message that is displayed temporarily."
+    >
+
+        <c-button variant="outline">
+            <c-toast.trigger toast_target="toast-success">
+                Show Toast
+            </c-toast.trigger>
+        </c-button>
+
+        <c-toast id="toast-success">
+            <c-toast.content
+                type="default"
+                title="Success"
+                description="This is a success message"
+            >
+                <c-button>Share</c-button>
+            </c-toast.content>
+        </c-toast>
+    </c-docs.page-header>
+
+    <c-docs.component-section title="Installation">
+        <c-docs.code-example language="bash">uvx shadcn_django@latest add toast</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Usage">
+        <c-docs.code-example language="html">{{ "<c-toast.trigger toast_target='toast-success'>
+    Show Toast
+</c-toast.trigger>
+<c-toast id='toast-success'>
+    <c-toast.content description='Your message here.' />
+</c-toast>" | display_code }}</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Examples">
+        <c-docs.example-item title="Simple" language="html">
+            <c-button variant="outline">
+                <c-toast.trigger toast_target='toast-simple'>
+                    Show Toast
+                </c-toast.trigger>
+            </c-button>
+            <c-toast id='toast-simple'>
+                <c-toast.content description='Your message has been sent.' />
+            </c-toast>
+
+            <c-slot name="code">{{ "<c-button variant='outline'>
+    <c-toast.trigger toast_target='toast-simple'>
+        Show Toast
+    </c-toast.trigger>
+</c-button>
+<c-toast id='toast-simple'>
+    <c-toast.content description='Your message has been sent.' />
+</c-toast>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="With title" language="html">
+            <c-button variant="outline">
+                <c-toast.trigger toast_target='toast-simple'>
+                    Show Toast
+                </c-toast.trigger>
+            </c-button>
+            <c-toast id='toast-simple'>
+                <c-toast.content title='Success' description='Your message has been sent.' />
+            </c-toast>
+
+            <c-slot name="code">{{ "<c-button variant='outline'>
+    <c-toast.trigger toast_target='toast-title'>
+        Show Toast
+    </c-toast.trigger>
+</c-button>
+<c-toast id='toast-title'>
+    <c-toast.content title='Success' description='Your message has been sent.' />
+</c-toast>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="With Action" language="html">
+            <c-button variant="outline">
+                <c-toast.trigger toast_target='toast-action'>
+                    Show Toast
+                </c-toast.trigger>
+            </c-button>
+            <c-toast id='toast-action'>
+                <c-toast.content title='Success' description='Your message has been sent.'>
+                    <c-button>Share</c-button>
+                </c-toast.content>
+            </c-toast>
+
+            <c-slot name="code">{{ "<c-button variant='outline'>
+    <c-toast.trigger toast_target='toast-action'>
+        Show Toast
+    </c-toast.trigger>
+</c-button>
+<c-toast id='toast-action'>
+    <c-toast.content title='Success' description='Your message has been sent.'>
+        <c-button>Share</c-button>
+    </c-toast.content>
+</c-toast>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="Destructive" language="html">
+            <c-button variant="outline">
+                <c-toast.trigger toast_target='toast-fail'>
+                    Show Toast
+                </c-toast.trigger>
+            </c-button>
+            <c-toast id='toast-fail'>
+                <c-toast.content type="destructive" title='Error' description='Your message could not be sent.'>
+                    <c-button variant='ghost'>Retry</c-button>
+                </c-toast.content>
+            </c-toast>
+
+            <c-slot name="code">{{ "<c-button variant='outline'>
+    <c-toast.trigger toast_target='toast-fail'>
+        Show Toast
+    </c-toast.trigger>
+</c-button>
+<c-toast id='toast-fail'>
+    <c-toast.content type='destructive' title='Error' description='Your message could not be sent.'>
+        <c-button variant='ghost'>Retry</c-button>
+    </c-toast.content>
+</c-toast>" | display_code }}</c-slot>
+        </c-docs.example-item>
+    </c-docs.component-section>
+
+</c-docs.layout.content>
+{% endblock %}

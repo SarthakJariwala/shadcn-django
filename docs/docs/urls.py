@@ -37,6 +37,7 @@ from .views import (
     table,
     tabs,
     textarea,
+    toast,
 )
 
 urlpatterns = [
@@ -60,4 +61,5 @@ urlpatterns = [
     path("table/", table, name="table"),
     path("tabs/", tabs, name="tabs"),
     path("textarea/", textarea, name="textarea"),
+    path("toast/", toast, name="toast"),
 ]

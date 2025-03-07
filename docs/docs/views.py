@@ -75,3 +75,7 @@ def tabs(request):
 
 def textarea(request):
     return render(request, "textarea.html")
+
+
+def toast(request):
+    return render(request, "toast.html")
