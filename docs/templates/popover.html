@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load code_display %}
+
+{% block body %}
+
+<c-docs.layout.content>
+
+    <c-docs.page-header
+        title="Popover"
+        description="Displays rich content in a portal, triggered by a button."
+    >
+        <c-popover>
+          <c-popover.trigger>
+            <c-button variant="outline">Open Popover</c-button>
+          </c-popover.trigger>
+          <c-popover.content>
+            <div class="grid gap-4">
+              <div class="space-y-2">
+                <h4 class="font-medium leading-none">Dimensions</h4>
+                <p class="text-sm text-muted-foreground">Set the dimensions for the layer.</p>
+              </div>
+              <div class="grid gap-2">
+                <div class="grid grid-cols-3 items-center gap-4">
+                  <c-label for="width">Width</c-label>
+                  <c-input id="width" value="100%" class="col-span-2" />
+                </div>
+                <div class="grid grid-cols-3 items-center gap-4">
+                  <c-label for="height">Height</c-label>
+                  <c-input id="height" value="25px" class="col-span-2" />
+                </div>
+              </div>
+            </div>
+          </c-popover.content>
+        </c-popover>
+    </c-docs.page-header>
+
+    <c-docs.component-section title="Installation">
+        <c-docs.code-example language="bash">uvx shadcn_django@latest add popover</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Usage">
+        <c-docs.code-example language="html">{{ "<c-popover>
+    <c-popover.trigger>
+        <c-button variant='outline'>Open Popover</c-button>
+    </c-popover.trigger>
+    <c-popover.content>
+        Place content for popover here.
+    </c-popover.content>
+</c-popover>" | display_code }}</c-docs.code-example>
+    </c-docs.component-section>
+
+</c-docs.layout.content>
+{% endblock %}

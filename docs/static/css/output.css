@@ -245,6 +245,9 @@
   .top-\[50\%\] {
     top: 50%;
   }
+  .top-full {
+    top: 100%;
+  }
   .right-1 {
     right: calc(var(--spacing) * 1);
   }
@@ -257,6 +260,9 @@
   .bottom-5 {
     bottom: calc(var(--spacing) * 5);
   }
+  .left-0 {
+    left: calc(var(--spacing) * 0);
+  }
   .left-\[50\%\] {
     left: 50%;
   }
@@ -265,6 +271,9 @@
   }
   .z-50 {
     z-index: 50;
+  }
+  .col-span-2 {
+    grid-column: span 2 / span 2;
   }
   .container {
     width: 100%;
@@ -388,6 +397,9 @@
   .min-h-\[60px\] {
     min-height: 60px;
   }
+  .min-h-\[350px\] {
+    min-height: 350px;
+  }
   .min-h-svh {
     min-height: 100svh;
   }
@@ -399,6 +411,9 @@
   }
   .w-56 {
     width: calc(var(--spacing) * 56);
+  }
+  .w-72 {
+    width: calc(var(--spacing) * 72);
   }
   .w-\[60\%\] {
     width: 60%;
@@ -458,6 +473,10 @@
     --tw-translate-y: calc(var(--spacing) * 0);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
+  .translate-y-1 {
+    --tw-translate-y: calc(var(--spacing) * 1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
   .translate-y-\[-50\%\] {
     --tw-translate-y: -50%;
     translate: var(--tw-translate-x) var(--tw-translate-y);
@@ -498,6 +517,9 @@
   }
   .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .flex-col {
     flex-direction: column;
@@ -765,9 +787,6 @@
   .pb-4 {
     padding-bottom: calc(var(--spacing) * 4);
   }
-  .pb-8 {
-    padding-bottom: calc(var(--spacing) * 8);
-  }
   .pb-10 {
     padding-bottom: calc(var(--spacing) * 10);
   }
@@ -987,6 +1006,10 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .duration-150 {
+    --tw-duration: 150ms;
+    transition-duration: 150ms;
+  }
   .duration-200 {
     --tw-duration: 200ms;
     transition-duration: 200ms;
@@ -1006,6 +1029,9 @@
   .select-none {
     -webkit-user-select: none;
     user-select: none;
+  }
+  .duration-150 {
+    animation-duration: 150ms;
   }
   .duration-200 {
     animation-duration: 200ms;

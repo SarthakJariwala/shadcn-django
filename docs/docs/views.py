@@ -65,6 +65,10 @@ def label(request):
     return render(request, "label.html")
 
 
+def popover(request):
+    return render(request, "popover.html")
+
+
 def progress(request):
     return render(request, "progress.html")
 
