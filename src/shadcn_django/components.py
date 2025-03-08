@@ -6,6 +6,7 @@ dependencies = {
     "badge": [],
     "button": [],
     "card": [],
+    "combobox": ["button", "popover"],
     "command": [],
     "command_dialog": ["command"],
     "dialog": ["button"],
