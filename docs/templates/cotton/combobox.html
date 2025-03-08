@@ -14,6 +14,43 @@
     buttonText: '{{ button_text }}',
     options: {{ options|default:'[]'|safe }},
     search: '',
+    highlightedIndex: -1,
+    filteredOptions: [],
+
+    init() {
+      this.$watch('search', () => {
+        this.updateFilteredOptions();
+        this.highlightedIndex = this.filteredOptions.length > 0 ? 0 : -1;
+      });
+
+      this.$watch('open', (isOpen) => {
+        if (isOpen) {
+          this.updateFilteredOptions();
+          this.highlightedIndex = this.filteredOptions.length > 0 ? 0 : -1;
+          // Focus the search input when opened
+          this.$nextTick(() => {
+            this.$refs.searchInput.focus();
+          });
+        }
+      });
+
+      this.updateFilteredOptions();
+
+      // Listen for keyboard events at the document level when dropdown is open
+      this.$watch('open', (isOpen) => {
+        if (isOpen) {
+          document.addEventListener('keydown', this.handleKeyDown);
+        } else {
+          document.removeEventListener('keydown', this.handleKeyDown);
+        }
+      });
+    },
+
+    updateFilteredOptions() {
+      this.filteredOptions = this.options.filter(opt =>
+        !this.search || opt.label.toLowerCase().includes(this.search.toLowerCase())
+      );
+    },
 
     // Direct selection handler
     selectValue(selectedValue) {
@@ -33,6 +70,23 @@
 
       // Close the dropdown
       this.open = false;
+    },
+
+    // Select the currently highlighted option
+    selectHighlighted() {
+      if (this.highlightedIndex >= 0 && this.highlightedIndex < this.filteredOptions.length) {
+        this.selectValue(this.filteredOptions[this.highlightedIndex].value);
+      }
+    },
+
+    // Ensure the highlighted option is visible in the scroll area
+    scrollToHighlighted() {
+      this.$nextTick(() => {
+        const highlightedEl = this.$refs.optionsContainer.querySelector(`[data-index='${this.highlightedIndex}']`);
+        if (highlightedEl) {
+          highlightedEl.scrollIntoView({ block: 'nearest' });
+        }
+      });
     }
   }"
   class="relative {% if class %}{{ class }}{% endif %}"
@@ -67,29 +121,38 @@
         </svg>
         <input
           x-model="search"
+          x-ref="searchInput"
           type="text"
           placeholder="{{ placeholder }}"
           class="flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground"
+          @keydown.down.prevent="highlightedIndex = (highlightedIndex + 1) % filteredOptions.length; scrollToHighlighted()"
+          @keydown.up.prevent="highlightedIndex = (highlightedIndex - 1 + filteredOptions.length) % filteredOptions.length; scrollToHighlighted()"
+          @keydown.enter.prevent="selectHighlighted()"
+          @keydown.escape.prevent="open = false"
         >
       </div>
 
       <!-- Options list -->
-      <div class="max-h-[300px] overflow-y-auto p-1">
+      <div x-ref="optionsContainer" class="max-h-[300px] overflow-y-auto p-1">
         <!-- Empty state -->
         <div
-          x-show="search && options.filter(opt => opt.label.toLowerCase().includes(search.toLowerCase())).length === 0"
+          x-show="filteredOptions.length === 0"
           class="py-6 text-center text-sm"
         >
           No item found.
         </div>
 
         <!-- Option items -->
-        <template x-for="option in options" x-bind:key="option.value">
+        <template x-for="(option, index) in filteredOptions" :key="option.value">
           <div
-            x-show="!search || option.label.toLowerCase().includes(search.toLowerCase())"
+            x-bind:data-index="index"
             @click="selectValue(option.value)"
-            class="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-accent hover:text-accent-foreground"
-            x-bind:class="{ 'bg-accent text-accent-foreground': value === option.value }"
+            @mousemove="highlightedIndex = index"
+            class="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none"
+            x-bind:class="{
+              'bg-accent text-accent-foreground': value === option.value,
+              'bg-muted text-accent-foreground': highlightedIndex === index && value !== option.value
+            }"
           >
             <!-- Check Icon -->
             <svg
