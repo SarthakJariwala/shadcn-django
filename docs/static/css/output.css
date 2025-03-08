@@ -391,8 +391,14 @@
   .max-h-0 {
     max-height: calc(var(--spacing) * 0);
   }
+  .max-h-\[100px\] {
+    max-height: 100px;
+  }
   .max-h-\[300px\] {
     max-height: 300px;
+  }
+  .max-h-\[400px\] {
+    max-height: 400px;
   }
   .max-h-screen {
     max-height: 100vh;

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load code_display %}
+
+{% block body %}
+
+<c-docs.layout.content>
+
+    <c-docs.page-header
+        title="Combobox"
+        description="Autocomplete input and command palette with a list of suggestions."
+    >
+        <c-combobox
+          :options="[
+            {'value': 'django', 'label': 'Django'},
+            {'value': 'tailwind', 'label': 'Tailwind'},
+            {'value': 'alpine.js', 'label': 'Alpine.js'},
+            {'value': 'htmx', 'label': 'HTMX'},
+          ]"
+          placeholder="Search framework..."
+          button_text="Select framework..."
+          width="w-[200px]"
+        />
+    </c-docs.page-header>
+
+    <c-docs.component-section title="Installation">
+        <c-docs.code-example language="bash">uvx shadcn_django@latest add combobox</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Usage">
+        <c-docs.code-example language="html">{{ "<c-combobox
+    :options='[]'
+    placeholder='Search framework...'
+    button_text='Select framework...'
+    width='w-[200px]'
+/>
+<!-- Options can be a list of dicts with values and labels -->
+<!-- options=[
+    {'value': 'django', 'label': 'Django'},
+    {'value': 'tailwind', 'label': 'Tailwind'},
+    {'value': 'alpine.js', 'label': 'Alpine.js'},
+    {'value': 'htmx', 'label': 'HTMX'},
+]-->" | display_code }}</c-docs.code-example>
+    </c-docs.component-section>
+
+</c-docs.layout.content>
+{% endblock %}

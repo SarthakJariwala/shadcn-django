@@ -37,6 +37,10 @@ def checkbox(request):
     return render(request, "checkbox.html")
 
 
+def combobox(request):
+    return render(request, "combobox.html")
+
+
 def command(request):
     return render(request, "command.html")
 
