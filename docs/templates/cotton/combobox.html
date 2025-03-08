@@ -1,0 +1,116 @@
+<c-vars
+    placeholder="Search..."
+    button_text="Select..."
+    width="w-[200px]"
+    selected_value=""
+    default_open="false"
+    name=""
+/>
+
+<div
+  x-data="{
+    open: {{ default_open|lower }},
+    value: '{{ selected_value }}',
+    buttonText: '{{ button_text }}',
+    options: {{ options|default:'[]'|safe }},
+    search: '',
+
+    // Direct selection handler
+    selectValue(selectedValue) {
+      // Toggle selection if already selected
+      if (this.value === selectedValue) {
+        this.value = '';
+        this.buttonText = '{{ button_text }}';
+      } else {
+        this.value = selectedValue;
+
+        // Find the label for the selected value
+        const option = this.options.find(opt => opt.value === selectedValue);
+        if (option) {
+          this.buttonText = option.label;
+        }
+      }
+
+      // Close the dropdown
+      this.open = false;
+    }
+  }"
+  class="relative {% if class %}{{ class }}{% endif %}"
+  {{ attrs }}
+>
+    <!-- Hidden input field to store the selected value -->
+    {% if name %}
+    <input type="hidden" name="{{ name }}" x-bind:value="value" />
+    {% endif %}
+  <c-popover :open="open" @open-change="open = $event">
+    <c-popover.trigger>
+      <c-button
+        variant="outline"
+        role="combobox"
+        x-bind:aria-expanded="open"
+        class="{{ width }} justify-between"
+      >
+        <span x-text="buttonText"></span>
+        <!-- ChevronsUpDown Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4 shrink-0 opacity-50">
+          <path d="m7 15 5 5 5-5"></path>
+          <path d="m7 9 5-5 5 5"></path>
+        </svg>
+      </c-button>
+    </c-popover.trigger>
+    <c-popover.content class="{{ width }} p-0">
+      <!-- Search input -->
+      <div class="flex items-center border-b px-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4 shrink-0 opacity-50">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </svg>
+        <input
+          x-model="search"
+          type="text"
+          placeholder="{{ placeholder }}"
+          class="flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground"
+        >
+      </div>
+
+      <!-- Options list -->
+      <div class="max-h-[300px] overflow-y-auto p-1">
+        <!-- Empty state -->
+        <div
+          x-show="search && options.filter(opt => opt.label.toLowerCase().includes(search.toLowerCase())).length === 0"
+          class="py-6 text-center text-sm"
+        >
+          No item found.
+        </div>
+
+        <!-- Option items -->
+        <template x-for="option in options" x-bind:key="option.value">
+          <div
+            x-show="!search || option.label.toLowerCase().includes(search.toLowerCase())"
+            @click="selectValue(option.value)"
+            class="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-accent hover:text-accent-foreground"
+            x-bind:class="{ 'bg-accent text-accent-foreground': value === option.value }"
+          >
+            <!-- Check Icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="mr-2 h-4 w-4"
+              x-bind:class="value === option.value ? 'opacity-100' : 'opacity-0'"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span x-text="option.label"></span>
+          </div>
+        </template>
+      </div>
+    </c-popover.content>
+  </c-popover>
+</div>
