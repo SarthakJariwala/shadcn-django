@@ -17,6 +17,7 @@ dependencies = {
     "label": [],
     "popover": [],
     "progress": [],
+    "select": [],
     "table": [],
     "tabs": [],
     "toast": [],
