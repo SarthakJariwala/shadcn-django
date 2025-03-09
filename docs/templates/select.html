@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load code_display %}
+
+{% block body %}
+
+<c-docs.layout.content>
+
+    <c-docs.page-header
+        title="Select"
+        description="Displays a list of options for the user to pick from—triggered by a button."
+    >
+        <c-select name="library" class="w-[180px]">
+          <c-select.trigger>
+            <c-select.value placeholder="Select a library" />
+          </c-select.trigger>
+          <c-select.content>
+            <c-select.item value="django">Django</c-select.item>
+            <c-select.item value="flask">Flask</c-select.item>
+            <c-select.item value="fastapi">FastAPI</c-select.item>
+            <c-select.item value="pyramid">Pyramid</c-select.item>
+            <c-select.item value="bottle">Bottle</c-select.item>
+          </c-select.content>
+        </c-select>
+    </c-docs.page-header>
+
+    <c-docs.component-section title="Installation">
+        <c-docs.code-example language="bash">uvx shadcn_django@latest add select</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Usage">
+        <c-docs.demo-section>
+            <c-select class="w-[180px]">
+              <c-select.trigger>
+                <c-select.value placeholder="Theme" />
+              </c-select.trigger>
+              <c-select.content>
+                <c-select.item value="light">Light</c-select.item>
+                <c-select.item value="dark">Dark</c-select.item>
+                <c-select.item value="system">System</c-select.item>
+              </c-select.content>
+            </c-select>
+        </c-docs.demo-section>
+
+        <c-docs.code-example language="html">{{ "<c-select class='w-[180px]'>
+    <c-select.trigger>
+        <c-select.value placeholder='Theme' />
+    </c-select.trigger>
+    <c-select.content>
+        <c-select.item value='light'>Light</c-select.item>
+        <c-select.item value='dark'>Dark</c-select.item>
+        <c-select.item value='system'>System</c-select.item>
+    </c-select.content>
+</c-select>" | display_code }}</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Examples">
+        <c-docs.example-item title="Disabled" language="html">
+            <c-select name="library" class="w-[180px]">
+              <c-select.trigger disabled>
+                <c-select.value placeholder="Select a library" />
+              </c-select.trigger>
+            </c-select>
+            <c-slot name="code">{{ "<c-select name='library' class='w-[180px]'>
+    <c-select.trigger disabled>
+        <c-select.value placeholder='Select a library' />
+    </c-select.trigger>
+</c-select>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+    </c-docs.component-section>
+
+</c-docs.layout.content>
+{% endblock %}

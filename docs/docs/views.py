@@ -77,6 +77,10 @@ def progress(request):
     return render(request, "progress.html")
 
 
+def select(request):
+    return render(request, "select.html")
+
+
 def table(request):
     return render(request, "table.html")
 
