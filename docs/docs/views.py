@@ -69,6 +69,10 @@ def label(request):
     return render(request, "label.html")
 
 
+def navigation_menu(request):
+    return render(request, "navigation_menu.html")
+
+
 def popover(request):
     return render(request, "popover.html")
 
