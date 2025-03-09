@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load code_display %}
+
+{% block body %}
+
+<c-docs.layout.content>
+
+    <c-docs.page-header
+        title="Separator"
+        description="Visually or semantically separates content."
+    >
+        <div>
+              <div class="space-y-1">
+                <h4 class="text-sm font-medium leading-none">Shadcn-Django</h4>
+                <p class="text-sm text-muted-foreground">
+                  An open-source UI component library for Django, based on shadcn/ui.
+                </p>
+              </div>
+              <c-separator class="my-4" />
+              <div class="flex h-5 items-center space-x-4 text-sm">
+                <div>Blog</div>
+                <c-separator orientation="vertical" />
+                <div>Docs</div>
+                <c-separator orientation="vertical" />
+                <div>Source</div>
+              </div>
+
+    </c-docs.page-header>
+
+    <c-docs.component-section title="Installation">
+        <c-docs.code-example language="bash">uvx shadcn_django@latest add separator</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Usage">
+        <c-docs.code-example language="html">{{ "<c-separator />" | display_code }}</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Examples">
+        <c-docs.example-item title="Vertical" language="html">
+            <div class="flex h-5 items-center space-x-4 text-sm">
+              <div>Blog</div>
+              <c-separator orientation="vertical" />
+              <div>Docs</div>
+              <c-separator orientation="vertical" />
+              <div>Source</div>
+            </div>
+            <c-slot name="code">{{ "<c-separator orientation='vertical' />" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="Non-decorative (Semantic)" language="html">
+            <c-separator decorative="false" />
+
+            <c-slot name="code">{{ "<c-separator decorative='false' />" | display_code }}</c-slot>
+        </c-docs.example-item>
+    </c-docs.component-section>
+
+</c-docs.layout.content>
+{% endblock %}

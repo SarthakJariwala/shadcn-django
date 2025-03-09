@@ -81,6 +81,10 @@ def select(request):
     return render(request, "select.html")
 
 
+def separator(request):
+    return render(request, "separator.html")
+
+
 def table(request):
     return render(request, "table.html")
 
