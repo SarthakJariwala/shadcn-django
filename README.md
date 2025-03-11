@@ -1,5 +1,7 @@
 # shadcn_django
 
+[![PyPI version](https://badge.fury.io/py/shadcn_django.svg)](https://badge.fury.io/py/shadcn_django)
+
 Beautifully designed components that you can copy and paste into your apps, based on [shadcn/ui](https://ui.shadcn.com/).
 
 This is an unofficial Django port of [shadcn/ui](https://ui.shadcn.com/). This project is not affiliated with shadcn.
