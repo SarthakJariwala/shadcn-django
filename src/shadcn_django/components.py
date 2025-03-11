@@ -19,6 +19,7 @@ dependencies = {
     "popover": [],
     "progress": [],
     "select": [],
+    "sheet": ["button"],
     "separator": [],
     "table": [],
     "tabs": [],
