@@ -1,6 +1,7 @@
 # shadcn_django
 
-[![PyPI version](https://badge.fury.io/py/shadcn_django.svg)](https://badge.fury.io/py/shadcn_django)
+[![PyPI](https://img.shields.io/pypi/v/shadcn_django.svg)](https://pypi.org/project/shadcn_django)
+[![Copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-orange.json)](https://github.com/copier-org/copier)
 
 Beautifully designed components that you can copy and paste into your apps, based on [shadcn/ui](https://ui.shadcn.com/).
 
