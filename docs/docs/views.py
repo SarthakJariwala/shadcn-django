@@ -89,6 +89,11 @@ def separator(request):
     return render(request, "separator.html")
 
 
+def sheet(request):
+    sides = ["top", "right", "bottom", "left"]
+    return render(request, "sheet.html", {"sides": sides})
+
+
 def table(request):
     return render(request, "table.html")
 

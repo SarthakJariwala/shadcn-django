@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load code_display %}
+
+{% block body %}
+
+<c-docs.layout.content>
+
+    <c-docs.page-header
+        title="Sheet"
+        description="Display content that complements the main content of the screen."
+    >
+        <c-sheet>
+            <c-sheet.trigger>
+                <c-button variant="outline">Open</c-button>
+            </c-sheet.trigger>
+            <c-sheet.content side="right">
+                <c-sheet.header>
+                <c-sheet.title>Right Sheet</c-sheet.title>
+                <c-sheet.description>
+                    This sheet appears from the right of the screen.
+                </c-sheet.description>
+                </c-sheet.header>
+            </c-sheet.content>
+        </c-sheet>
+    </c-docs.page-header>
+
+    <c-docs.component-section title="Installation">
+        <c-docs.code-example language="bash">uvx shadcn_django@latest add sheet</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Usage">
+        <c-docs.code-example language="html">{{ "<c-sheet>
+    <c-sheet.trigger>
+        <c-button variant='outline'>Open</c-button>
+    </c-sheet.trigger>
+    <c-sheet.content side='right'>
+        <c-sheet.header>
+        <c-sheet.title>Right Sheet</c-sheet.title>
+        <c-sheet.description>
+            This sheet appears from the right of the screen.
+        </c-sheet.description>
+        </c-sheet.header>
+    </c-sheet.content>
+</c-sheet>" | display_code }}</c-docs.code-example>
+    </c-docs.component-section>
+
+    <c-docs.component-section title="Examples">
+        <c-docs.example-item language="html">
+            <div class="grid grid-cols-2 gap-2">
+              {% for side in sides %}
+                <c-sheet>
+                  <c-sheet.trigger>
+                    <c-button variant="outline" class="w-full">{{ side|title }}</c-button>
+                  </c-sheet.trigger>
+                  <c-sheet.content side="{{ side }}">
+                    <c-sheet.header>
+                      <c-sheet.title>{{ side|title }} Sheet</c-sheet.title>
+                      <c-sheet.description>
+                        This sheet appears from the {{ side }} of the screen.
+                      </c-sheet.description>
+                    </c-sheet.header>
+                  </c-sheet.content>
+                </c-sheet>
+              {% endfor %}
+            </div>
+
+            <c-slot name="code">{{ "<div class='grid grid-cols-2 gap-2'>
+    <c-sheet>
+        <c-sheet.trigger>
+        <c-button variant='outline' class='w-full'>Top</c-button>
+        </c-sheet.trigger>
+        <c-sheet.content side='top'>
+        <c-sheet.header>
+            <c-sheet.title>Top Sheet</c-sheet.title>
+            <c-sheet.description>
+            This sheet appears from the top of the screen.
+            </c-sheet.description>
+        </c-sheet.header>
+        </c-sheet.content>
+    </c-sheet>
+</div>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+        <c-docs.example-item title="Adjust Size" language="html">
+            <c-sheet>
+              <c-sheet.trigger>
+                <c-button variant="outline">Right</c-button>
+              </c-sheet.trigger>
+              <c-sheet.content side="right" class="w-[700px] sm:w-[540px]">
+                <c-sheet.header>
+                  <c-sheet.title>Adjust Sheet Size</c-sheet.title>
+                  <c-sheet.description>
+                    This sheet content is larger and appears from the right of the screen.
+                  </c-sheet.description>
+                </c-sheet.header>
+              </c-sheet.content>
+            </c-sheet>
+            <c-slot name="code">{{ "<c-sheet>
+    <c-sheet.trigger>
+        <c-button variant='outline' class='w-full'>Right</c-button>
+    </c-sheet.trigger>
+    <c-sheet.content side='right' class='w-[700px] sm:w-[540px]'>
+        <c-sheet.header>
+            <c-sheet.title>Right Sheet</c-sheet.title>
+            <c-sheet.description>
+            This sheet appears from the right of the screen.
+            </c-sheet.description>
+        </c-sheet.header>
+    </c-sheet.content>
+</c-sheet>" | display_code }}</c-slot>
+        </c-docs.example-item>
+
+    </c-docs.component-section>
+
+
+</c-docs.layout.content>
+{% endblock %}
