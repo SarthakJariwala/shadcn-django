@@ -22,13 +22,51 @@
     <body
        class="min-h-svh bg-background font-sans antialiased"
        hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+       x-data="{ mobileMenuOpen: false }"
     >
         <div class="relative flex min-h-svh flex-col bg-background">
+            <!-- Mobile Menu Button (visible only on small screens) -->
+            <div class="fixed top-4 left-4 z-40 md:hidden">
+                <c-button
+                    variant="outline"
+                    @click="mobileMenuOpen = !mobileMenuOpen"
+                    class="p-2 rounded-md bg-background border border-border"
+                    aria-label="Toggle menu"
+                    x-show="!mobileMenuOpen"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" x-show="!mobileMenuOpen">
+                        <line x1="4" x2="20" y1="12" y2="12"/>
+                        <line x1="4" x2="20" y1="6" y2="6"/>
+                        <line x1="4" x2="20" y1="18" y2="18"/>
+                    </svg>
+                </c-button>
+            </div>
 
-        <div class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
+            <div class="container flex-1 items-start md:pl-5 md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
+                <!-- Sidebar -->
+                <aside
+                    class="border-grid fixed top-0 left-0 z-30 h-full w-[80%] max-w-[300px] shrink-0 bg-background p-4 transition-transform duration-200 ease-in-out md:sticky md:top-10 md:block md:h-[calc(100vh-3.5rem)] md:w-full md:max-w-none md:translate-x-0 md:p-0"
+                    :class="mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'"
+                >
+                    <!-- Close button - visible only on mobile -->
+                    <c-button
+                        variant="ghost"
+                        @click="mobileMenuOpen = false"
+                        class="absolute top-4 right-4 p-1 text-muted-foreground md:hidden"
+                        aria-label="Close menu"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5">
+                            <path d="M18 6 6 18"/>
+                            <path d="m6 6 12 12"/>
+                        </svg>
+                    </c-button>
 
-                <aside class="border-grid fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 border-t md:sticky md:block">
-                    <div class="no-scrollbar h-full overflow-auto py-6 pr-4 lg:py-8">
+                    <!-- Site name/logo for all screen sizes -->
+                    <div class="mb-6 mt-6 flex items-center justify-start md:mt-4 md:pl-2">
+                        <span class="text-lg font-bold">shadcn/django</span>
+                    </div>
+
+                    <div class="no-scrollbar h-full overflow-auto pb-6 pr-4 md:pt-2 lg:pb-8">
                         <div class="flex flex-col gap-6">
                             <div class="flex flex-col gap-1">
                                 <h4 class="rounded-md px-2 py-1 text-sm font-medium">Getting Started</h4>
@@ -72,12 +110,23 @@
                     </div>
                 </aside>
 
-                <main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px] mt-10">
+                <!-- Backdrop for mobile menu -->
+                <div
+                    x-show="mobileMenuOpen"
+                    @click="mobileMenuOpen = false"
+                    class="fixed inset-0 z-20 bg-background/80 backdrop-blur-sm md:hidden"
+                    x-transition:enter="transition-opacity ease-out duration-300"
+                    x-transition:enter-start="opacity-0"
+                    x-transition:enter-end="opacity-100"
+                    x-transition:leave="transition-opacity ease-in duration-200"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="opacity-0"
+                ></div>
+
+                <main class="relative py-10 sm:pl-10 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px] mt-10">
                     {% block body %}{% endblock %}
                 </main>
-
-        </div>
-
+            </div>
         </div>
     </body>
 </html>
