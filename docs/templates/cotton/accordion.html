@@ -1,8 +1,8 @@
-<c-vars type="single" collapsible="false"></c-vars>
+<c-vars type="single" collapsible="false" open="{}"></c-vars>
 
 <div
   x-data="{
-    open: {},
+    open: {{ open }},
     type: '{{ type }}',
     collapsible: {{ collapsible|lower }},
 
