@@ -340,7 +340,7 @@ wheels = [
 
 [[package]]
 name = "shadcn-django"
-version = "0.18.0"
+version = "0.21.0"
 source = { editable = "." }
 dependencies = [
     { name = "copier" },
