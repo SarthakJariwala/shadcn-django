@@ -88,10 +88,11 @@ Make sure you have Tailwind CSS and Alpine.js installed:
 You can use npm or yarn to install `tailwindcss`:
 
 ```bash
-npm install -D tailwindcss tailwindcss-animate
+npm install -D tailwindcss tw-animate-css
 ```
 
-or, you can also use `django-tailwind-cli` if you don't want to use `node`.
+or, you can also use `django-tailwind-cli` if you don't want to use `node`,
+and follow the manual installation instructions for `tw-animate-css` [here](https://github.com/wombosvideo/tw-animate-css?tab=readme-ov-file#manual-download)
 
 See alpinejs docs for installation instructions: https://alpinejs.dev/installation
 

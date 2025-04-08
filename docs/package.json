@@ -2,6 +2,6 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.0.9",
     "tailwindcss": "^4.0.9",
-    "tailwindcss-animate": "^1.0.7"
+    "tw-animate-css": "^1.2.5"
   }
 }
