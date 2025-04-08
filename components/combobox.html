@@ -124,7 +124,7 @@
           x-ref="searchInput"
           type="text"
           placeholder="{{ placeholder }}"
-          class="flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground"
+          class="flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-hidden placeholder:text-muted-foreground"
           @keydown.down.prevent="highlightedIndex = (highlightedIndex + 1) % filteredOptions.length; scrollToHighlighted()"
           @keydown.up.prevent="highlightedIndex = (highlightedIndex - 1 + filteredOptions.length) % filteredOptions.length; scrollToHighlighted()"
           @keydown.enter.prevent="selectHighlighted()"
@@ -148,7 +148,7 @@
             x-bind:data-index="index"
             @click="selectValue(option.value)"
             @mousemove="highlightedIndex = index"
-            class="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none"
+            class="relative flex cursor-pointer select-none items-center rounded-xs px-2 py-1.5 text-sm outline-hidden"
             x-bind:class="{
               'bg-accent text-accent-foreground': value === option.value,
               'bg-muted text-accent-foreground': highlightedIndex === index && value !== option.value
