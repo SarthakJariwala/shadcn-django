@@ -3,7 +3,7 @@
 <div
   data-value="{{ value }}"
   @click="select('{{ value }}', $el.textContent.trim())"
-  class="relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 hover:bg-accent hover:text-accent-foreground {% if class %}{{ class }}{% endif %}"
+  class="relative flex w-full cursor-default select-none items-center rounded-xs py-1.5 pl-8 pr-2 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 hover:bg-accent hover:text-accent-foreground {% if class %}{{ class }}{% endif %}"
   x-bind:class="{'bg-accent text-accent-foreground': value === '{{ value }}'}"
   role="option"
   x-bind:data-state="value === '{{ value }}' ? 'checked' : 'unchecked'"
