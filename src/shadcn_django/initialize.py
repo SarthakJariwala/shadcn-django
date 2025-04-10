@@ -22,7 +22,7 @@ def init():
             src_path=COMPONENTS_REPO_URL,
             dst_path=Path.cwd(),
             vcs_ref="main",
-            exclude=["*", "!tailwind.config.js", "!input.css"],
+            exclude=["*", "!input.css"],
         )
     console.print(
         Panel(
