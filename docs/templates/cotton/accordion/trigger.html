@@ -3,7 +3,7 @@
 <h3 class="flex">
   <button
     @click="toggle('{{ value }}')"
-    class="flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180 {% if class %}{{ class }}{% endif %}"
+    class="flex flex-1 items-center justify-between py-4 text-sm font-medium hover:underline [&[data-state=open]>svg]:rotate-180 {% if class %}{{ class }}{% endif %}"
     x-bind:aria-expanded="isOpen('{{ value }}')"
     x-bind:data-state="isOpen('{{ value }}') ? 'open' : 'closed'"
     {{ attrs }}
@@ -20,7 +20,7 @@
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
-      class="size-4 shrink-0 text-muted-foreground transition-transform duration-200"
+      class="size-4 shrink-0 text-muted-foreground transition-transform duration-200 ease-out"
     >
       <polyline points="6 9 12 15 18 9"></polyline>
     </svg>
