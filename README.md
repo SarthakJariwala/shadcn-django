@@ -13,6 +13,14 @@ Components are built with Tailwind CSS and Alpine.js and are HTMX-compatible, ma
 
 Docs: https://shadcn-django.com
 
+---
+
+Video overview by BugBytes:
+
+[![Video (from BugBytes)](https://img.youtube.com/vi/p8abKXay9T4/0.jpg)](https://youtu.be/p8abKXay9T4)
+
+---
+
 ## Features
 
 - 🧩 Add components individually as needed
