@@ -454,17 +454,11 @@
   .h-px {
     height: 1px;
   }
-  .max-h-0 {
-    max-height: calc(var(--spacing) * 0);
-  }
   .max-h-\[200px\] {
     max-height: 200px;
   }
   .max-h-\[300px\] {
     max-height: 300px;
-  }
-  .max-h-screen {
-    max-height: 100vh;
   }
   .min-h-\[60px\] {
     min-height: 60px;
@@ -1549,11 +1543,6 @@
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
-  .data-\[state\=closed\]\:animate-accordion-up {
-    &[data-state="closed"] {
-      animation: accordion-up var(--tw-duration,.2s)ease-out;
-    }
-  }
   .data-\[state\=closed\]\:animate-out {
     &[data-state="closed"] {
       animation: exit var(--tw-duration,.15s)var(--tw-ease,ease);
@@ -1567,11 +1556,6 @@
   .data-\[state\=closed\]\:zoom-out-95 {
     &[data-state="closed"] {
       --tw-exit-scale: .95;
-    }
-  }
-  .data-\[state\=open\]\:animate-accordion-down {
-    &[data-state="open"] {
-      animation: accordion-down var(--tw-duration,.2s)ease-out;
     }
   }
   .data-\[state\=open\]\:animate-in {
@@ -2264,21 +2248,5 @@
   to {
     opacity: var(--tw-exit-opacity,1);
     transform: translate3d(var(--tw-exit-translate-x,0),var(--tw-exit-translate-y,0),0)scale3d(var(--tw-exit-scale,1),var(--tw-exit-scale,1),var(--tw-exit-scale,1))rotate(var(--tw-exit-rotate,0));
-  }
-}
-@keyframes accordion-down {
-  from {
-    height: 0;
-  }
-  to {
-    height: var(--radix-accordion-content-height,var(--bits-accordion-content-height));
-  }
-}
-@keyframes accordion-up {
-  from {
-    height: var(--radix-accordion-content-height,var(--bits-accordion-content-height));
-  }
-  to {
-    height: 0;
   }
 }
