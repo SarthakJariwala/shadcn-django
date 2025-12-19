@@ -3,6 +3,55 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Geist font family - the signature shadcn/ui typeface */
+@font-face {
+    font-family: 'Geist';
+    src: url('/static/fonts/Geist-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('/static/fonts/Geist-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('/static/fonts/Geist-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist';
+    src: url('/static/fonts/Geist-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist Mono';
+    src: url('/static/fonts/GeistMono-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Geist Mono';
+    src: url('/static/fonts/GeistMono-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
@@ -37,6 +86,10 @@
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
+
+    /* Font families */
+    --font-sans: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
 }
 
 .dark {
@@ -111,6 +164,8 @@
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-ring: var(--sidebar-ring);
+    --font-sans: var(--font-sans);
+    --font-mono: var(--font-mono);
 }
 
 @layer base {
@@ -118,6 +173,130 @@
         @apply border-border outline-ring/50;
     }
     body {
-        @apply bg-background text-foreground;
+        @apply bg-background text-foreground font-sans;
+    }
+
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Refined selection colors */
+    ::selection {
+        @apply bg-primary/20 text-foreground;
+    }
+}
+
+@layer components {
+    /* Subtle dot grid background pattern */
+    .bg-grid-pattern {
+        background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+
+    /* Gradient mesh background */
+    .bg-gradient-radial {
+        background: radial-gradient(ellipse 80% 50% at 50% -20%, oklch(0.7 0.1 250 / 0.15), transparent);
+    }
+
+    /* Header blur effect */
+    .header-blur {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Sidebar scrollbar styling */
+    .sidebar-scroll::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .sidebar-scroll::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .sidebar-scroll::-webkit-scrollbar-thumb {
+        background-color: var(--border);
+        border-radius: 2px;
+    }
+
+    .sidebar-scroll::-webkit-scrollbar-thumb:hover {
+        background-color: var(--muted-foreground);
+    }
+
+    /* Code block enhancements */
+    pre[class*="language-"] {
+        @apply rounded-lg border border-border bg-muted/50 text-sm;
+        font-family: var(--font-mono);
+    }
+
+    code {
+        font-family: var(--font-mono);
+    }
+
+    :not(pre) > code {
+        @apply rounded px-1.5 py-0.5 bg-muted text-sm font-medium;
+    }
+
+    /* Smooth link transitions */
+    a {
+        @apply transition-colors duration-200;
+    }
+
+    /* Focus ring styling */
+    .focus-ring {
+        @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    }
+
+    /* Prose overrides for docs content */
+    .prose a {
+        @apply text-foreground underline decoration-border underline-offset-4 hover:decoration-foreground transition-colors;
+    }
+
+    .prose strong {
+        @apply font-semibold text-foreground;
+    }
+
+    /* Heading anchor links */
+    .heading-anchor {
+        @apply opacity-0 ml-2 text-muted-foreground hover:text-foreground transition-opacity;
+    }
+
+    h2:hover .heading-anchor,
+    h3:hover .heading-anchor {
+        @apply opacity-100;
+    }
+}
+
+@layer utilities {
+    /* Hide scrollbar utility */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    /* Text balance utility */
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    /* Animation delay utilities */
+    .animation-delay-100 {
+        animation-delay: 100ms;
+    }
+
+    .animation-delay-200 {
+        animation-delay: 200ms;
+    }
+
+    .animation-delay-300 {
+        animation-delay: 300ms;
+    }
+
+    .animation-delay-400 {
+        animation-delay: 400ms;
     }
 }
