@@ -1,17 +1,26 @@
 {% extends 'base.html' %}
 
 {% block body %}
-
 <c-docs.layout.content>
-
     <c-docs.page-header
         title="Installation"
         description="How to install dependencies and structure your app."
     />
-    <c-docs.para>
-        For installation instructions, refer to the guide on
-        <a href="https://github.com/SarthakJariwala/shadcn-django?tab=readme-ov-file#getting-started" class="underline underline-offset-2">GitHub README</a>.
-    </c-docs.para>
+    <c-docs.component-section title="Quick Start">
+        <c-docs.para>
+            For complete installation instructions, including Tailwind and Alpine.js setup, refer to the guide on
+            <a href="https://github.com/SarthakJariwala/shadcn-django?tab=readme-ov-file#getting-started" class="font-medium underline underline-offset-4 hover:text-foreground">GitHub README</a>.
+        </c-docs.para>
 
+        <div class="mt-6 space-y-4">
+            <h3 class="font-semibold text-base">Add a component</h3>
+            <c-docs.code-example language="bash">uvx shadcn_django@latest add button</c-docs.code-example>
+        </div>
+
+        <div class="mt-6 space-y-4">
+            <h3 class="font-semibold text-base">Use in your template</h3>
+            <c-docs.code-example language="html">&lt;c-button&gt;Click me&lt;/c-button&gt;</c-docs.code-example>
+        </div>
+    </c-docs.component-section>
 </c-docs.layout.content>
 {% endblock %}

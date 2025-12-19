@@ -1,7 +1,9 @@
-<h3 class="font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight">
-    {{ title }}
-</h3>
-<c-docs.demo-section>
-    {{ slot }}
-</c-docs.demo-section>
-<c-docs.code-example :language="language">{{ code }}</c-docs.code-example>
+<div class="space-y-4 mt-8">
+    <h3 class="font-semibold tracking-tight text-base scroll-m-20">
+        {{ title }}
+    </h3>
+    <c-docs.demo-section>
+        {{ slot }}
+    </c-docs.demo-section>
+    <c-docs.code-example :language="language">{{ code }}</c-docs.code-example>
+</div>

@@ -1,8 +1,8 @@
-<div class="space-y-2">
-    <h1 class="scroll-m-20 text-3xl font-bold tracking-tight">{{ title }}</h1>
-    <p class="text-base text-muted-foreground">{{ description }}</p>
+<div class="space-y-2 pb-8 pt-4 md:pb-10">
+    <h1 class="scroll-m-20 text-3xl font-bold tracking-tight lg:text-4xl">{{ title }}</h1>
+    <p class="text-lg text-muted-foreground text-balance">{{ description }}</p>
     {% if slot %}
-    <div class="flex flex-col min-h-[350px] w-full items-center justify-center border border-background-500 rounded-md p-10">
+    <div class="flex min-h-[350px] w-full items-center justify-center rounded-xl border border-border bg-muted/30 p-10 mt-6">
         {{ slot }}
     </div>
     {% endif %}
