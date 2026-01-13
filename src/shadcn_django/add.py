@@ -1,3 +1,5 @@
+import shutil
+import tempfile
 from pathlib import Path
 from typing import Annotated
 
@@ -51,25 +53,25 @@ def _install_component(
         component_excludes = [f"!{comp}"]
         excludes = ["*"] + component_excludes
 
-        # Copy to a temp location first, then rename
-        copier.run_copy(
-            src_path=COMPONENTS_REPO_URL,
-            dst_path=Path("templates"),
-            vcs_ref="main",
-            exclude=excludes,
-            overwrite=overwrite,
-        )
+        # Copy to a temp location first
+        with tempfile.TemporaryDirectory() as tmpdir:
+            copier.run_copy(
+                src_path=COMPONENTS_REPO_URL,
+                dst_path=Path(tmpdir),
+                vcs_ref="main",
+                exclude=excludes,
+                overwrite=True,
+            )
 
-        # Rename the folder if needed (e.g., allauth -> account)
-        if comp != dest_folder:
-            src_path = Path("templates") / comp
+            # Move from temp/{comp}/* to templates/{dest_folder}/
+            src_path = Path(tmpdir) / comp
             dest_path = Path("templates") / dest_folder
+
             if src_path.exists():
                 if dest_path.exists() and overwrite:
-                    import shutil
-
                     shutil.rmtree(dest_path)
-                src_path.rename(dest_path)
+                dest_path.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copytree(src_path, dest_path)
 
 
 @app.command(name="add")
