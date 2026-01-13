@@ -108,3 +108,7 @@ def textarea(request):
 
 def toast(request):
     return render(request, "toast.html")
+
+
+def allauth(request):
+    return render(request, "allauth.html")

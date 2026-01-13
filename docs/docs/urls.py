@@ -21,6 +21,7 @@ from .views import (
     accordion,
     alert,
     alert_dialog,
+    allauth,
     badge,
     button,
     card,
@@ -76,4 +77,6 @@ urlpatterns = [
     path("tabs/", tabs, name="tabs"),
     path("textarea/", textarea, name="textarea"),
     path("toast/", toast, name="toast"),
+    # Blocks
+    path("allauth/", allauth, name="allauth"),
 ]

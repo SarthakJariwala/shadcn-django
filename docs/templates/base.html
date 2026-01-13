@@ -44,8 +44,11 @@
                             <a href="/" class="text-muted-foreground transition-colors hover:text-foreground {% if request.path == '/' or '/introduction' in request.path %}text-foreground{% endif %}">
                                 Docs
                             </a>
-                            <a href="/accordion" class="text-muted-foreground transition-colors hover:text-foreground {% if request.path != '/' and '/introduction' not in request.path and '/installation' not in request.path %}text-foreground{% endif %}">
+                            <a href="/accordion" class="text-muted-foreground transition-colors hover:text-foreground {% if request.path != '/' and '/introduction' not in request.path and '/installation' not in request.path and '/allauth' not in request.path %}text-foreground{% endif %}">
                                 Components
+                            </a>
+                            <a href="/allauth" class="text-muted-foreground transition-colors hover:text-foreground {% if '/allauth' in request.path %}text-foreground{% endif %}">
+                                Blocks
                             </a>
                         </nav>
                     </div>
@@ -125,6 +128,14 @@
                                     </div>
                                 </div>
 
+                                <!-- Blocks -->
+                                <div class="flex flex-col gap-1">
+                                    <h4 class="px-2 py-1 text-sm font-semibold tracking-tight">Blocks</h4>
+                                    <div class="grid grid-flow-row auto-rows-max gap-0.5 text-sm">
+                                        <c-docs.link href="/allauth" class="{% if '/allauth' in request.path %}bg-accent font-medium{% endif %}">django-allauth</c-docs.link>
+                                    </div>
+                                </div>
+
                                 <!-- Components -->
                                 <div class="flex flex-col gap-1">
                                     <h4 class="px-2 py-1 text-sm font-semibold tracking-tight">Components</h4>
@@ -155,7 +166,7 @@
                                         <c-docs.link href="/textarea" class="{% if '/textarea' in request.path %}bg-accent font-medium{% endif %}">Textarea</c-docs.link>
                                         <c-docs.link href="/toast" class="{% if '/toast' in request.path %}bg-accent font-medium{% endif %}">Toast</c-docs.link>
                                     </div>
-                                </div>
+                                </div>                                
                             </div>
                         </div>
                     </aside>
