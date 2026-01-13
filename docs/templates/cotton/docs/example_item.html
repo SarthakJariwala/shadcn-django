@@ -5,5 +5,7 @@
     <c-docs.demo-section>
         {{ slot }}
     </c-docs.demo-section>
+    {% if code %}
     <c-docs.code-example :language="language">{{ code }}</c-docs.code-example>
+    {% endif %}
 </div>
